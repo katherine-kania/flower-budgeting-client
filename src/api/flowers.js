@@ -6,10 +6,10 @@ import axios from 'axios'
 export const getAllFlowers = (user) => {
     console.log('this is the user:', user)
     return axios({
-        url: `${apiUrl}/flowers/`,
+        url: apiUrl + `/flowers/`,
         method: 'GET',
         headers: {
-            Authorization: `Token token=${user.token}`
+            Authorization: `Token ${user.token}`
         }
     })
 }

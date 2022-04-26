@@ -72,9 +72,10 @@ const App = () => {
           <Route
             path='/flowers/'
             element={
-              <RequireAuth user={user}>
+
                 <IndexFlowers msgAlert={msgAlert} user={user} />
-              </RequireAuth>}
+
+			  }
           />
 				</Routes>
 				{msgAlerts.map((msgAlert) => (

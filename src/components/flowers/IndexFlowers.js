@@ -8,9 +8,10 @@ const IndexFlowers = (props) => {
     const [flowers, setFlowers] = useState(null)
 
     const {user, msgAlert} = props
-
+    console.log('user in index flowers',user)
+    // console.log('flowers in index flowers',flowers)
     useEffect(() => {
-        getAllFlowers()
+        getAllFlowers(user)
             .then(res => {
                 setFlowers(res.data.flowers)
             })
@@ -41,6 +42,7 @@ const IndexFlowers = (props) => {
                 <Card.Header>{flower.name}</Card.Header>
                 <Card.Body>
                     <Card.Text>
+                        <Card.Img variant="top" src={`${flower.img}`} />
                         <Link to={`/flowers/${flower.id}`}>View {flower.name}</Link>
                     </Card.Text>
                 </Card.Body>
