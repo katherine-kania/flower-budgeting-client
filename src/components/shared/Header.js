@@ -58,6 +58,9 @@ const Header = ({ user }) => (
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
+			<Nav.Item>
+		    <Link to='flowers' style={linkStyle}>Flowers</Link>
+        	</Nav.Item>
 		</Navbar.Collapse>
 	</Navbar>
 )
