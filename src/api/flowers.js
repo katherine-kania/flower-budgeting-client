@@ -15,9 +15,9 @@ export const getAllFlowers = (user) => {
 }
 
 // show function
-export const getOneFlower = (flowerId, user) => {
+export const getOneFlower = (id, user) => {
     return axios({
-        url: apiUrl + `/flowers/${flowerId}/`,
+        url: apiUrl + `/flowers/${id}/`,
         method: 'SHOW',
         headers: {
             Authorization: `Token ${user.token}`
