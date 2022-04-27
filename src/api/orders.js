@@ -2,16 +2,16 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 // index function
-// export const getAllOrders = (user) => {
-//     // console.log('this is the user:', user)
-//     return axios({
-//         url: apiUrl + `/orders/`,
-//         method: 'GET',
-//         headers: {
-//             Authorization: `Token ${user.token}`
-//         }
-//     })
-// }
+export const getAllOrders = (user) => {
+    // console.log('this is the user:', user)
+    return axios({
+        url: apiUrl + `/orders/`,
+        method: 'GET',
+        headers: {
+            Authorization: `Token ${user.token}`
+        }
+    })
+}
 
 // show function
 // export const getOneOrder = (id, user) => {

@@ -33,14 +33,14 @@ const OrderForm = (props) => {
                 <Form.Label>Color</Form.Label>
                 <Form.Control 
                     placeholder="Color preference"
-                    value={order.price_range}
-                    name='price_range'
+                    value={order.color}
+                    name='color'
                     onChange={handleChange}
                 />
                 <Form.Label>Flowers</Form.Label>
                 <Form.Control 
                     placeholder="Flower preferences"
-                    value={order.price_range}
+                    value={order.flower}
                     name='flower'
                     onChange={handleChange}
                 />

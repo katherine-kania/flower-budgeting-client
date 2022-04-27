@@ -64,6 +64,9 @@ const Header = ({ user }) => (
 			<Nav.Item>
 		    	<Link to='orders/create' style={linkStyle}>Create Order</Link>
         	</Nav.Item>
+			<Nav.Item>
+		    	<Link to='orders' style={linkStyle}>My Orders</Link>
+        	</Nav.Item>
 		</Navbar.Collapse>
 	</Navbar>
 )
