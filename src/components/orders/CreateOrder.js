@@ -1,0 +1,67 @@
+import React, { useState } from 'react'
+import { Form, Container, Button } from 'react-bootstrap'
+import { createOrder } from '../../api/orders'
+import OrderForm from '../shared/OrderForm'
+
+const CreateOrder = (props) => {
+    const {user, msgAlert} = props
+    console.log('user in create', user)
+    const navigate = useNavigate()
+    
+    const [order, setOrder] = useState({
+        name: '', 
+        size: '', 
+        price_range: '', 
+        color: '',
+        flower: '',
+        vase: ''
+    })
+    console.log('order in createOrder', order)
+
+    const handleChange = (e) => {
+        // e === event
+        e.persist()
+
+        setOrder(prevOrder => {
+            const name = e.target.name
+            let value = e.target.value
+            console.log('etarget type', e.target.type)
+            console.log('this is e.target checked', e.target.checked)
+
+            const updatedValue = { [name]: value }
+
+            console.log('prevOrder', prevOrder)
+            console.log('updatedValue', updatedValue)
+
+            return {...prevOrder, ...updatedValue}
+        })
+    }
+
+    const handleSubmit = (e) => {
+        // e === event
+        e.preventDefault()
+
+        createOrder(user, order)
+            // if create is successful, we should navigate to the show page
+            .then(res => {navigate(`/orders/${res.data.order.id}`)})
+
+            // if there is an error, we'll send an error message
+            .catch(() =>
+                msgAlert({
+                    heading: 'Oh No!',
+                    message: 'creat order failed',
+                    variant: 'danger',
+                }))
+    }
+
+    return (
+        <OrderForm 
+            order={order}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            heading="Make a new order!"
+        />
+    )
+}
+
+export default CreateOrder
