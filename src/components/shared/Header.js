@@ -59,7 +59,10 @@ const Header = ({ user }) => (
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
 			<Nav.Item>
-		    <Link to='flowers' style={linkStyle}>Flowers</Link>
+		    	<Link to='flowers' style={linkStyle}>Flowers</Link>
+        	</Nav.Item>
+			<Nav.Item>
+		    	<Link to='orders/create' style={linkStyle}>Create Order</Link>
         	</Nav.Item>
 		</Navbar.Collapse>
 	</Navbar>

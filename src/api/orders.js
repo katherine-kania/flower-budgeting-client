@@ -29,7 +29,7 @@ export const createOrder = (user, newOrder) => {
     console.log('user', user)
     console.log('this is newOrder', newOrder)
     return axios({
-        url: apiUrl + `/orders/`,
+        url: apiUrl + `/orders/create/`,
         method: 'POST',
         headers: {
             Authorization: `Token ${user.token}`

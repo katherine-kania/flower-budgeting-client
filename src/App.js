@@ -14,6 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexFlowers from './components/flowers/IndexFlowers'
 import ShowFlower from './components/flowers/ShowFlower'
+import CreateOrder from './components/orders/CreateOrder'
 
 const App = () => {
 
@@ -83,6 +84,14 @@ const App = () => {
             element={
 				<RequireAuth user={user}>
 					<ShowFlower msgAlert={msgAlert} user={user} />
+				</RequireAuth>
+			  }
+        	/>
+          <Route
+            path='/orders/create/'
+            element={
+				<RequireAuth user={user}>
+					<CreateOrder msgAlert={msgAlert} user={user} />
 				</RequireAuth>
 			  }
         	/>
