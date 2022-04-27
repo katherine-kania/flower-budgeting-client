@@ -3,6 +3,11 @@ import { getAllFlowers } from '../../api/flowers'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+const cardContainerLayout = {
+    display: 'flex',
+    justifyContent: 'center',
+    flexFlow: 'row wrap'
+}
 
 const IndexFlowers = (props) => {
     const [flowers, setFlowers] = useState(null)
@@ -34,11 +39,8 @@ const IndexFlowers = (props) => {
     let flowerCards
 
     if (flowers.length > 0) {
-
         flowerCards = flowers.map(flower => (
-            // one method of styling, usually reserved for a single style
-            // we can use inline, just like in html
-            <Card key={flower.id} style={{ width: '30%' }} className="m-2">
+            <Card key={flower.id} style={{ width: '20%' }} className="m-4">
                 <Card.Header>{flower.name}</Card.Header>
                 <Card.Body>
                     <Card.Text>
@@ -53,7 +55,7 @@ const IndexFlowers = (props) => {
     return (
         <>
             <h3>The flower dictionary</h3>
-            <div>
+            <div style={cardContainerLayout}>
                 {flowerCards}
             </div>
         </>
