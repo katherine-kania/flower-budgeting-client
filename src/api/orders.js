@@ -14,15 +14,14 @@ export const getAllOrders = (user) => {
 }
 
 // show function
-// export const getOneOrder = (id, user) => {
-//     return axios({
-//         url: apiUrl + `/orders/${id}/`,
-//         method: 'SHOW',
-//         headers: {
-//             Authorization: `Token ${user.token}`
-//         }
-//     })
-// }
+export const getOneOrder = (id, user) => {
+    return axios({
+        url: apiUrl + `/orders/${id}/`,
+        headers: {
+            Authorization: `Token ${user.token}`
+        }
+    })
+}
 
 // POST -> create function
 export const createOrder = (user, newOrder) => {

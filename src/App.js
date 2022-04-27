@@ -16,6 +16,8 @@ import IndexFlowers from './components/flowers/IndexFlowers'
 import ShowFlower from './components/flowers/ShowFlower'
 import CreateOrder from './components/orders/CreateOrder'
 import IndexOrders from './components/orders/IndexOrders'
+import ShowOrder from './components/orders/ShowOrder'
+
 
 const App = () => {
 
@@ -101,6 +103,14 @@ const App = () => {
             element={
 				<RequireAuth user={user}>
 					<CreateOrder msgAlert={msgAlert} user={user} />
+				</RequireAuth>
+			  }
+        	/>
+          <Route
+            path='/orders/:id/'
+            element={
+				<RequireAuth user={user}>
+					<ShowOrder msgAlert={msgAlert} user={user} />
 				</RequireAuth>
 			  }
         	/>
