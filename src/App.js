@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import IndexFlowers from './components/flowers/IndexFlowers'
+import ShowFlower from './components/flowers/ShowFlower'
 
 const App = () => {
 
@@ -72,11 +73,19 @@ const App = () => {
           <Route
             path='/flowers/'
             element={
-
-                <IndexFlowers msgAlert={msgAlert} user={user} />
-
+				<RequireAuth user={user}>
+					<IndexFlowers msgAlert={msgAlert} user={user} />
+				</RequireAuth>
 			  }
-          />
+        	/>
+          <Route
+            path='/flowers/:id/'
+            element={
+				<RequireAuth user={user}>
+					<ShowFlower msgAlert={msgAlert} user={user} />
+				</RequireAuth>
+			  }
+        	/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
 					<AutoDismissAlert

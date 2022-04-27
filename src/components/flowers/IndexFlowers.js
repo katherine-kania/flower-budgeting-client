@@ -13,7 +13,7 @@ const IndexFlowers = (props) => {
     const [flowers, setFlowers] = useState(null)
 
     const {user, msgAlert} = props
-    console.log('user in index flowers',user)
+    // console.log('user in index flowers',user)
     // console.log('flowers in index flowers',flowers)
     useEffect(() => {
         getAllFlowers(user)
