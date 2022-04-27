@@ -44,15 +44,19 @@ const CreateOrder = (props) => {
 
         createOrder(user, order)
             // if create is successful, we should navigate to the show page
-            .then(res => {navigate(`/orders/${res.data.order.id}`)})
+            .then(res => {
+                console.log('this is the create order id', res.data.order.id )
+                navigate(`/orders/${res.data.order.id}`)
+            })
 
             // if there is an error, we'll send an error message
             .catch(() =>
                 msgAlert({
                     heading: 'Oh No!',
-                    message: 'creat order failed',
+                    message: 'create order failed',
                     variant: 'danger',
                 }))
+        console.log('this is the order', order)
     }
 
     return (

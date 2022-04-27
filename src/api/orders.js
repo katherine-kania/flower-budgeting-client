@@ -17,6 +17,7 @@ export const getAllOrders = (user) => {
 export const getOneOrder = (id, user) => {
     return axios({
         url: apiUrl + `/orders/${id}/`,
+        method: 'GET',
         headers: {
             Authorization: `Token ${user.token}`
         }
