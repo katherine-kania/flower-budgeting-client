@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
-import { getAllFlowers } from '../../api/flowers'
 
 
 const OrderForm = (props) => {
-    const {order, user, handleChange, handleSubmit, heading, msgAlert} = props
+    const {order, user, flowers, handleChange, handleSubmit, heading, msgAlert} = props
     
     ///// The price ranges depend on the size selected from an array
     const [ priceRange, setPriceRange ] = useState([])
@@ -40,41 +39,15 @@ const OrderForm = (props) => {
     }
 
     //// the flowers depend on the selection of colors
-    
-    const [flowers, setFlowers] = useState(null)
     const [ filteredFlowers, setFilteredFlowers] = useState([])
     const [ selectedColor, setSelectedColor ] = useState('')
     const [ selectedFlower, setSelectedFlower ] = useState('')
     
-    /// call all flowers
-    useEffect(() => {
-        getAllFlowers(user)
-            .then(res => {
-                setFlowers(res.data.flowers)
-            })
-            
-            .catch(() => {
-                msgAlert({
-                    heading: 'No flowers?!!',
-                    message: 'no flowers found',
-                    variant: 'danger',
-                })
-            })
-    }, [])
-    console.log('the flowers in order form', flowers)
     
-    // const blackFlowers
-    // if (flowers) {
-    //     blackFlowers = flowers.map(flower => (
-    //         <>
-    //         {flower.id}
-    //         </>
-    //     ))
-    // }
-    // console.log("this is the black", blackFlowers)
+    console.log('the flowers in order form', flowers)
 
     const colors = {
-        black: [],
+        black: [flowers],
         nude: [],
         peach: [],
         pink: [],
@@ -82,13 +55,24 @@ const OrderForm = (props) => {
         violet: [],
         white: [],
         yellow: []
-
+        
     }
-
+    console.log("this is the colors", colors)
+    
     const colorList = Object.keys(colors).map(key => ({
         name: key
     }))
-
+    
+    // const asArray = Object.entries(flowers)
+    // const filtered = asArray.filter(([key, value]) => typeof value === 'black')
+    // const justStrings = Object.fromEntries(filtered)
+    // console.log('these are the black flowers', justStrings)
+    // = Object.keys(flowers).map(key => ({
+        
+        //         name: key
+        
+        // }))
+        
     const handleColorSelect = (e) => {
         console.log('Selected Color', e.target.value)
         const colorSel = e.target.value
@@ -98,13 +82,18 @@ const OrderForm = (props) => {
         setSelectedFlower('')
         handleChange(e)
     }
+        
+    let flowerList = flowers.map((flower) => {
+        return flower.name
+    })
 
     const handleFlowerSelect = (e) => {
-        console.log('Selected Price range', e.target.value)
+        console.log('Selected flowers', e.target.value)
         const flowerSel = e.target.value
         setSelectedFlower(flowerSel)
         handleChange(e)
     }
+
     
     return (
         <Container className="justify-content-center">
@@ -161,7 +150,21 @@ const OrderForm = (props) => {
                 ))}
                 </Form.Select>
 
-                <Form.Label>Select a flower type</Form.Label>    
+                <Form.Label>Select a flower</Form.Label>
+                <Form.Select
+                name="flower"
+                onChange={e => handleFlowerSelect(e)}
+                value={selectedFlower}
+                >
+                <option value="">Select the flower</option>
+                {flowerList.map(flower=> (
+                    <option value={flower}>
+                    {flower}
+                    </option>
+                ))}
+                </Form.Select>
+
+                {/* <Form.Label>Select a flower type</Form.Label>    
                 <div>
                     {['checkbox'].map((type) => (
                         <div key={`default-${type}`} className="mb-3">
@@ -180,7 +183,7 @@ const OrderForm = (props) => {
                         </option>
                     ))}
 
-                </div>
+                </div> */}
 
 
 
