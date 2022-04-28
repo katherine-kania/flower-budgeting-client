@@ -15,7 +15,7 @@ const CreateOrder = (props) => {
         size: '', 
         price_range: '', 
         color: '',
-        flower: '',
+        flower: Number(),
         vase: ''
     })
     console.log('order in createOrder', order)

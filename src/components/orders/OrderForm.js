@@ -80,23 +80,15 @@ const OrderForm = (props) => {
     const colorList = Object.keys(colors).map(key => ({
         name: key
     }))
-    
-    // const asArray = Object.entries(flowers)
-    // const filtered = asArray.filter(([key, value]) => typeof value === 'black')
-    // const justStrings = Object.fromEntries(filtered)
-    // console.log('these are the black flowers', justStrings)
-    // = Object.keys(flowers).map(key => ({
-        
-        //         name: key
-        
-        // }))
-        
+  
     const handleColorSelect = (e) => {
         console.log('Selected Color', e.target.value)
         const colorSel = e.target.value
         const flowerSel = colorSel !== '' ? colors[colorSel] : ''
+        const values = flowerSel.filter(flower => (flower.color == colorSel))
+        console.log('filtered flowers', values)
         setSelectedColor(colorSel)
-        setFilteredFlowers(flowerSel)
+        setFilteredFlowers(values)
         setSelectedFlower('')
         handleChange(e)
         
@@ -175,7 +167,7 @@ const OrderForm = (props) => {
                 >
                 <option value="">Select the flower</option>
                 {filteredFlowers.map(flower=> (
-                    <option value={flower.id}>
+                    <option value={Number(flower.id)}>
                     {flower.name}
                     </option>
                 ))}
@@ -184,7 +176,7 @@ const OrderForm = (props) => {
                 <Form.Label>Vase</Form.Label>
                 <Form.Control 
                     placeholder="Vase preferences"
-                    value={order.vasee}
+                    value={order.vase}
                     name='vase'
                     onChange={handleChange}
                 />
