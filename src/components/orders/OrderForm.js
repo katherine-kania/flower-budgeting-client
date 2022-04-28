@@ -1,10 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
-
+import { getAllFlowers } from '../../api/flowers'
 
 const OrderForm = (props) => {
-    const {order, user, flowers, handleChange, handleSubmit, heading, msgAlert} = props
+    const {order, user, handleChange, handleSubmit, heading, msgAlert} = props
     
+    //// the flowers depend on the selection of colors
+    const [flowers, setFlowers] = useState(null)
+    
+    /// call all flowers
+    useEffect(() => {
+        getAllFlowers(user)
+            .then(res => {
+                setFlowers(res.data.flowers)
+            })
+            
+            .catch(() => {
+                msgAlert({
+                    heading: 'No flowers?!!',
+                    message: 'no flowers found',
+                    variant: 'danger',
+                })
+            })
+    }, [])
+    // console.log('the flowers in order form', flowers)
+
     ///// The price ranges depend on the size selected from an array
     const [ priceRange, setPriceRange ] = useState([])
     const [ selectedSize, setSelectedSize ] = useState('')
@@ -42,19 +62,17 @@ const OrderForm = (props) => {
     const [ filteredFlowers, setFilteredFlowers] = useState([])
     const [ selectedColor, setSelectedColor ] = useState('')
     const [ selectedFlower, setSelectedFlower ] = useState('')
-    
-    
-    console.log('the flowers in order form', flowers)
 
+    
     const colors = {
-        black: [flowers],
-        nude: [],
-        peach: [],
-        pink: [],
-        red: [],
-        violet: [],
-        white: [],
-        yellow: []
+        black: flowers,
+        nude: flowers,
+        peach: flowers,
+        pink: flowers,
+        red: flowers,
+        violet: flowers,
+        white: flowers,
+        yellow: flowers
         
     }
     console.log("this is the colors", colors)
@@ -81,21 +99,20 @@ const OrderForm = (props) => {
         setFilteredFlowers(flowerSel)
         setSelectedFlower('')
         handleChange(e)
-    }
         
-    let flowerList = flowers.map((flower) => {
-        return flower.name
-    })
-
+    }
+    
+        
     const handleFlowerSelect = (e) => {
         console.log('Selected flowers', e.target.value)
         const flowerSel = e.target.value
         setSelectedFlower(flowerSel)
         handleChange(e)
     }
-
+        
     
     return (
+        <>
         <Container className="justify-content-center">
             <h3>{heading}</h3>
             <Form onSubmit={handleSubmit}>
@@ -149,7 +166,7 @@ const OrderForm = (props) => {
                     </option>
                 ))}
                 </Form.Select>
-
+                
                 <Form.Label>Select a flower</Form.Label>
                 <Form.Select
                 name="flower"
@@ -157,52 +174,12 @@ const OrderForm = (props) => {
                 value={selectedFlower}
                 >
                 <option value="">Select the flower</option>
-                {flowerList.map(flower=> (
-                    <option value={flower}>
-                    {flower}
+                {filteredFlowers.map(flower=> (
+                    <option value={flower.id}>
+                    {flower.name}
                     </option>
                 ))}
                 </Form.Select>
-
-                {/* <Form.Label>Select a flower type</Form.Label>    
-                <div>
-                    {['checkbox'].map((type) => (
-                        <div key={`default-${type}`} className="mb-3">
-                        <Form.Check 
-                            name="flower"
-                            onChange={e => handleFlowerSelect(e)}
-                            value={selectedFlower}
-                        />
-
-                        </div>
-                    ))}
-                    <option value="">Select the flower</option>
-                    {filteredFlowers.map((flower, key) => (
-                        <option key={key} value={flower}>
-                        {flower.id}
-                        </option>
-                    ))}
-
-                </div> */}
-
-
-
-
-                {/* <Form.Label>Color</Form.Label>
-                <Form.Control 
-                    placeholder="Select your color preference"
-                    value={order.color}
-                    name='color'
-                    onChange={handleChange}
-                />
-
-                <Form.Label>Flowers</Form.Label>
-                <Form.Control 
-                    placeholder="Flower preferences"
-                    value={order.flower}
-                    name='flower'
-                    onChange={handleChange}
-                /> */}
                 
                 <Form.Label>Vase</Form.Label>
                 <Form.Control 
@@ -215,6 +192,7 @@ const OrderForm = (props) => {
                 <Button type='submit'>Submit</Button>
             </Form>
         </Container>
+        </>
     )
 }
 

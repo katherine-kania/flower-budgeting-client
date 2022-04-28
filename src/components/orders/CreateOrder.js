@@ -3,12 +3,12 @@ import { Form, Container, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { createOrder } from '../../api/orders'
 import OrderForm from './OrderForm'
-import { getAllFlowers } from '../../api/flowers'
 
 const CreateOrder = (props) => {
     const {user, msgAlert} = props
     console.log('user in create', user)
     const navigate = useNavigate()
+
     
     const [order, setOrder] = useState({
         name: '', 
@@ -60,31 +60,10 @@ const CreateOrder = (props) => {
         console.log('this is the order', order)
     }
 
-    //// the flowers depend on the selection of colors
-    const [flowers, setFlowers] = useState(null)
-    
-    /// call all flowers
-    useEffect(() => {
-        getAllFlowers(user)
-            .then(res => {
-                setFlowers(res.data.flowers)
-            })
-            
-            .catch(() => {
-                msgAlert({
-                    heading: 'No flowers?!!',
-                    message: 'no flowers found',
-                    variant: 'danger',
-                })
-            })
-    }, [])
-    console.log('the flowers in order form', flowers)
-
     return (
         <OrderForm 
             order={order}
             user={user}
-            flowers={flowers}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             heading="Make a new order!"
