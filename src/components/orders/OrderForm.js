@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
 import { getAllFlowers } from '../../api/flowers'
 
+
 const OrderForm = (props) => {
     const {order, user, handleChange, handleSubmit, heading, msgAlert} = props
     
@@ -168,7 +169,7 @@ const OrderForm = (props) => {
                 >
                 <option value="">Select the flower</option>
                 {filteredFlowers.map(flower=> (
-                    <option value={Number(flower.id)}>
+                    <option value={flower.id}>
                     {flower.name}
                     </option>
                 ))}

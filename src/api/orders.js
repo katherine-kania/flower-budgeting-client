@@ -32,9 +32,43 @@ export const createOrder = (user, newOrder) => {
         url: apiUrl + `/orders/create/`,
         method: 'POST',
         headers: {
-            Authorization: `Token ${user.token}`,
-            'Content-type': 'text/plain'
+            Authorization: `Token ${user.token}`
         },
-        data: { order: newOrder }
+        data: {
+                // id: newOrder.id,
+                name: newOrder.name,
+                size: newOrder.size,
+                price_range: newOrder.price_range,
+                color: newOrder.color,
+                vase: newOrder.vase,
+                flower: newOrder.flower,
+                // owner: user.id
+        }
+    })
+}
+
+// PATCH -> update function
+export const updateOrder = (user, updatedOrder) => {
+    console.log('user', user)
+    console.log('this is newPet', updatedOrder)
+    return axios({
+        url: `${apiUrl}/orders/${updatedOrder.id}`,
+        method: 'PATCH',
+        headers: {
+            Authorization:  `Token ${user.token}`
+        },
+        data: { pet: updatedPet }
+    })
+}
+
+// DELETE -> remove function
+export const removePet = (user, petId) => {
+    console.log('user', user)
+    return axios({
+        url: `${apiUrl}/pets/${petId}`,
+        method: 'DELETE',
+        headers: {
+            Authorization: `Token token=${user.token}`
+        }
     })
 }

@@ -99,7 +99,7 @@ const App = () => {
 			  }
         	/>
           <Route
-            path='/orders/create/'
+            path='/orders/create'
             element={
 				<RequireAuth user={user}>
 					<CreateOrder msgAlert={msgAlert} user={user} />

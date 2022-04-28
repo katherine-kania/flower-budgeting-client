@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Container, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { createOrder } from '../../api/orders'
 import OrderForm from './OrderForm'
@@ -41,7 +40,7 @@ const CreateOrder = (props) => {
             .then(res => {
                 console.log('this is the create order id', res.data.order.id )
                 setOrder({})
-                navigate(`/orders/${res.data.order.id}`)
+                navigate(`/orders/${res.data.order.id}/`)
             })
 
             // if there is an error, we'll send an error message
