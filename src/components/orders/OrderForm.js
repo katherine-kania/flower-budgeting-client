@@ -75,7 +75,7 @@ const OrderForm = (props) => {
         yellow: flowers
         
     }
-    console.log("this is the colors", colors)
+    // console.log("this is the colors", colors)
     
     const colorList = Object.keys(colors).map(key => ({
         name: key
@@ -163,6 +163,7 @@ const OrderForm = (props) => {
                 <Form.Select
                 name="flower"
                 onChange={e => handleFlowerSelect(e)}
+                type='number'
                 value={selectedFlower}
                 >
                 <option value="">Select the flower</option>

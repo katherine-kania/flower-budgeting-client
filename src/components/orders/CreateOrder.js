@@ -10,14 +10,7 @@ const CreateOrder = (props) => {
     const navigate = useNavigate()
 
     
-    const [order, setOrder] = useState({
-        name: '', 
-        size: '', 
-        price_range: '', 
-        color: '',
-        flower: Number(),
-        vase: ''
-    })
+    const [order, setOrder] = useState({})
     console.log('order in createOrder', order)
 
     const handleChange = (e) => {
@@ -30,7 +23,7 @@ const CreateOrder = (props) => {
             console.log('etarget type', e.target.type)
             console.log('this is e.target checked', e.target.checked)
 
-            const updatedValue = { [name]: value }
+            const updatedValue = { [name]: name === 'flower' ? parseInt(value) : value }
 
             console.log('prevOrder', prevOrder)
             console.log('updatedValue', updatedValue)
@@ -47,6 +40,7 @@ const CreateOrder = (props) => {
             // if create is successful, we should navigate to the show page
             .then(res => {
                 console.log('this is the create order id', res.data.order.id )
+                setOrder({})
                 navigate(`/orders/${res.data.order.id}`)
             })
 

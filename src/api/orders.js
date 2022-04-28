@@ -25,15 +25,15 @@ export const getOneOrder = (id, user) => {
 }
 
 // POST -> create function
-export const createOrder = (user, flower, newOrder) => {
+export const createOrder = (user, newOrder) => {
     console.log('user', user)
-    console.log('flower', flower)
     console.log('this is newOrder', newOrder)
     return axios({
         url: apiUrl + `/orders/create/`,
         method: 'POST',
         headers: {
-            Authorization: `Token ${user.token}`
+            Authorization: `Token ${user.token}`,
+            'Content-type': 'text/plain'
         },
         data: { order: newOrder }
     })
