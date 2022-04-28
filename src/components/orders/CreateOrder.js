@@ -5,7 +5,7 @@ import { createOrder } from '../../api/orders'
 import OrderForm from '../shared/OrderForm'
 
 const CreateOrder = (props) => {
-    const {user, msgAlert} = props
+    const {flowers, user, msgAlert} = props
     console.log('user in create', user)
     const navigate = useNavigate()
     
@@ -62,6 +62,8 @@ const CreateOrder = (props) => {
     return (
         <OrderForm 
             order={order}
+            user={user}
+            flowers={flowers}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             heading="Make a new order!"

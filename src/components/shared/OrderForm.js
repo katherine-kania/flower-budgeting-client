@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
+import { getAllFlowers } from '../../api/flowers'
 
 
 const OrderForm = (props) => {
+    const {order, user, handleChange, handleSubmit, heading, msgAlert} = props
     
-    const {order, handleChange, handleSubmit, heading} = props
+    ///// The price ranges depend on the size selected from an array
     const [ priceRange, setPriceRange ] = useState([])
     const [ selectedSize, setSelectedSize ] = useState('')
     const [ selectedPrice, setSelectedPrice ] = useState('')
@@ -35,6 +37,41 @@ const OrderForm = (props) => {
         const priceSel = e.target.value
         setSelectedPrice(priceSel)
         handleChange(e)
+    }
+
+    //// the flowers depend on the selection of colors
+    
+    const [flowers, setFlowers] = useState(null)
+    // const [ selectedColor, setSelectedColor ] = useState('')
+    // const [ selectedFlower, setSelectedFlower ] = useState('')
+    
+    /// call all flowers
+    useEffect(() => {
+        getAllFlowers(user)
+            .then(res => {
+                setFlowers(res.data.flowers)
+            })
+            
+            .catch(() => {
+                msgAlert({
+                    heading: 'No flowers?!!',
+                    message: 'no flowers found',
+                    variant: 'danger',
+                })
+            })
+    }, [])
+    console.log('the flowers in order form', flowers)
+
+    const colors = {
+        black: [],
+        nude: [],
+        peach: [],
+        pink: [],
+        red: [],
+        violet: [],
+        white: [],
+        yellow: []
+
     }
     
     return (
@@ -78,32 +115,6 @@ const OrderForm = (props) => {
                         </option>
                     ))}
                 </Form.Select>
-
-
-                {/* <Form.Group controlId='size'>
-                    <Form.Label>Arrangement Size</Form.Label>
-                    <Form.Select name="size" onChange={handleChange} aria-label="Select Size">
-                        <option>Select a size</option>
-                        <option value={order.type}>small</option>
-                        <option value={order.type}>medium</option>
-                        <option value={order.type}>large</option>
-                        <option value={order.type}>other</option>
-                    </Form.Select>
-                </Form.Group>
-
-                <Form.Group controlId='price_range'>
-                    <Form.Label>Price Range</Form.Label>
-                    <Form.Select name="price_range" onChange={handleChange} aria-label="Select a price">
-                        <option>Select a price range</option>
-                        { order.type = small && 
-                        <option value={order.price_range}>$30-40</option>
-                        
-                        }
-                        <option value={order.price_range}>medium</option>
-                        <option value={order.price_range}>large</option>
-                        <option value={order.price_range}>other</option>
-                    </Form.Select>
-                </Form.Group> */}
 
                 <Form.Label>Color</Form.Label>
                 <Form.Control 
