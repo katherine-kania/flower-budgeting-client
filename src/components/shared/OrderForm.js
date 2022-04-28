@@ -42,8 +42,9 @@ const OrderForm = (props) => {
     //// the flowers depend on the selection of colors
     
     const [flowers, setFlowers] = useState(null)
-    // const [ selectedColor, setSelectedColor ] = useState('')
-    // const [ selectedFlower, setSelectedFlower ] = useState('')
+    const [ filteredFlowers, setFilteredFlowers] = useState([])
+    const [ selectedColor, setSelectedColor ] = useState('')
+    const [ selectedFlower, setSelectedFlower ] = useState('')
     
     /// call all flowers
     useEffect(() => {
@@ -61,6 +62,16 @@ const OrderForm = (props) => {
             })
     }, [])
     console.log('the flowers in order form', flowers)
+    
+    // const blackFlowers
+    // if (flowers) {
+    //     blackFlowers = flowers.map(flower => (
+    //         <>
+    //         {flower.id}
+    //         </>
+    //     ))
+    // }
+    // console.log("this is the black", blackFlowers)
 
     const colors = {
         black: [],
@@ -72,6 +83,27 @@ const OrderForm = (props) => {
         white: [],
         yellow: []
 
+    }
+
+    const colorList = Object.keys(colors).map(key => ({
+        name: key
+    }))
+
+    const handleColorSelect = (e) => {
+        console.log('Selected Color', e.target.value)
+        const colorSel = e.target.value
+        const flowerSel = colorSel !== '' ? colors[colorSel] : ''
+        setSelectedColor(colorSel)
+        setFilteredFlowers(flowerSel)
+        setSelectedFlower('')
+        handleChange(e)
+    }
+
+    const handleFlowerSelect = (e) => {
+        console.log('Selected Price range', e.target.value)
+        const flowerSel = e.target.value
+        setSelectedFlower(flowerSel)
+        handleChange(e)
     }
     
     return (
@@ -90,7 +122,6 @@ const OrderForm = (props) => {
                 <Form.Label>Select a Size</Form.Label>
                 <Form.Select
                 name="size"
-                
                 onChange={e => handleSizeSelect(e)}
                 value={selectedSize}
                 >
@@ -116,7 +147,45 @@ const OrderForm = (props) => {
                     ))}
                 </Form.Select>
 
-                <Form.Label>Color</Form.Label>
+                <Form.Label>Select a Color</Form.Label>
+                <Form.Select
+                name="color"
+                onChange={e => handleColorSelect(e)}
+                value={selectedColor}
+                >
+                <option value="">Select the color</option>
+                {colorList.map((color, key) => (
+                    <option key={key} value={color.name}>
+                    {color.name}
+                    </option>
+                ))}
+                </Form.Select>
+
+                <Form.Label>Select a flower type</Form.Label>    
+                <div>
+                    {['checkbox'].map((type) => (
+                        <div key={`default-${type}`} className="mb-3">
+                        <Form.Check 
+                            name="flower"
+                            onChange={e => handleFlowerSelect(e)}
+                            value={selectedFlower}
+                        />
+
+                        </div>
+                    ))}
+                    <option value="">Select the flower</option>
+                    {filteredFlowers.map((flower, key) => (
+                        <option key={key} value={flower}>
+                        {flower.id}
+                        </option>
+                    ))}
+
+                </div>
+
+
+
+
+                {/* <Form.Label>Color</Form.Label>
                 <Form.Control 
                     placeholder="Select your color preference"
                     value={order.color}
@@ -130,7 +199,7 @@ const OrderForm = (props) => {
                     value={order.flower}
                     name='flower'
                     onChange={handleChange}
-                />
+                /> */}
                 
                 <Form.Label>Vase</Form.Label>
                 <Form.Control 
