@@ -6,7 +6,22 @@ import { Spinner, Container, Card, Button } from 'react-bootstrap'
 const cardContainerLayout = {
     display: 'flex',
     justifyContent: 'center',
-    flexFlow: 'row wrap'
+    flexFlow: 'row wrap',
+    opacity: '0.7',
+}
+
+const fontStyle = {
+    color: '#5c82a6',
+	fontFamily: 'Quattrocento',
+	fontWeight: 'bolder',
+    margin: '',
+    backgroundColor: 'white',
+    margin: '30px 30px 30px 30px',
+    opacity: '0.7',
+    height: '47%',
+    width: '47%',
+    position: 'absolute',
+    zIndex: '-1',
 }
 
 const ShowFlower = (props) => {
@@ -45,7 +60,7 @@ const ShowFlower = (props) => {
 
     return (
         <>
-            <Container className="fluid">
+            <Container className="fluid" style={cardContainerLayout}>
                 <Card>
                     <Card.Header>{flower.name}</Card.Header>
                     <Card.Body>
