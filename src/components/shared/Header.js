@@ -3,28 +3,34 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
 const linkStyle = {
-    color: 'white',
-    textDecoration: 'none'
+    color: '#6f8760',
+    textDecoration: 'none',
+	isplay: 'flex',
+	justifyContent: 'left',
+	alignItems: 'start',
+	flexFlow: 'row wrap',
+	margin: '10px',
+	fontWeight: 'bolder'
 }
 const authenticatedOptions = (
 	<>
-		<Nav.Item>
+		<Nav.Item className="m-2">
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item>
+		<Nav.Item className="m-2">
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
 		</Nav.Item>
-		<Nav.Item>
+		<Nav.Item className="m-2">
 			<Link to='flowers' style={linkStyle}>Flowers</Link>
 		</Nav.Item>
-		<Nav.Item>
+		<Nav.Item className="m-2">
 			<Link to='orders/create' style={linkStyle}>Create Order</Link>
 		</Nav.Item>
-		<Nav.Item>
+		<Nav.Item className="m-2">
 			<Link to='orders' style={linkStyle}>My Orders</Link>
 		</Nav.Item>
 	</>
@@ -32,10 +38,10 @@ const authenticatedOptions = (
 
 const unauthenticatedOptions = (
 	<>
-        <Nav.Item>
+        <Nav.Item className="m-2">
 		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
         </Nav.Item>
-        <Nav.Item>
+        <Nav.Item className="m-2">
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Item>
 	</>
@@ -43,11 +49,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
 	<>
-		<Nav.Link>
-			<Link to='/' style={linkStyle}>
-				Home
-			</Link>
-		</Nav.Link>
+		
 	</>
 )
 

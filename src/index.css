@@ -1,6 +1,6 @@
 body {
   margin: 1.5em;
-  background-color: rgb(193, 193, 187);
+  background-color: #e6d7cd;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -22,6 +22,16 @@ code {
 }
 
 .header-color{
-  background-color: rgb(193, 193, 187);
-  border: medium solid rgb(52, 60, 85);
+  background-color: #e6d7cd;
+  border: medium solid #e1b493;
+  /* border-radius: 20px 20px 0 0; */
+}
+
+/*Green #99a98f */
+/*Blue  #5c82a6 */
+
+h2 {
+  padding: 1.5em;
+  font-family: 'Poiret One', cursive;
+  font-size: 2em;
 }
