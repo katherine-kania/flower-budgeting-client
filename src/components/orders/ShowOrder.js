@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import { getOneOrder, removeOrder} from '../../api/orders'
+import { getOneOrder, removeOrder, updateOrder} from '../../api/orders'
 import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner, Container, Card, Button } from 'react-bootstrap'
+import EditOrderModal from './EditOrderModal'
 
 const cardContainerLayout = {
     display: 'flex',
@@ -12,6 +13,8 @@ const cardContainerLayout = {
 const ShowOrder = (props) => {
 
     const [order, setOrder] = useState(null)
+    const [modalOpen, setModalOpen] = useState(false)
+    const [updated, setUpdated] = useState(false)
     const {user, msgAlert} = props
     const { id } = useParams()
     console.log('id in showOrder', id)
@@ -32,7 +35,7 @@ const ShowOrder = (props) => {
                     variant: 'danger',
                 })
             })
-    }, [])
+    }, [updated])
 
     if (!order) {
         return (
@@ -77,16 +80,24 @@ const ShowOrder = (props) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        {/* <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
+                        <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
                             Edit Order
-                        </Button> */}
+                        </Button>
                         <Button onClick={() => removeTheOrder()}className="m-2" variant="danger">
                             Delete Order
                         </Button>
                     </Card.Footer>
                 </Card>
             </Container>
-            
+            <EditOrderModal 
+                order={order}
+                show={modalOpen}
+                user={user}
+                msgAlert={msgAlert}
+                triggerRefresh={() => setUpdated(prev => !prev)}
+                updateOrder={updateOrder}
+                handleClose={() => setModalOpen(false)}
+            />
         </>
     )
 }

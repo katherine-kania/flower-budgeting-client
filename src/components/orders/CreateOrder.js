@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createOrder } from '../../api/orders'
-import OrderForm from './OrderForm'
+import OrderForm from '../shared/OrderForm'
 
 const CreateOrder = (props) => {
     const {user, msgAlert} = props
