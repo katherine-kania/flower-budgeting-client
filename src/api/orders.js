@@ -35,14 +35,12 @@ export const createOrder = (user, newOrder) => {
             Authorization: `Token ${user.token}`
         },
         data: {
-                // id: newOrder.id,
                 name: newOrder.name,
                 size: newOrder.size,
                 price_range: newOrder.price_range,
                 color: newOrder.color,
                 vase: newOrder.vase,
-                flower: newOrder.flower,
-                // owner: user.id
+                flower: newOrder.flower
         }
     })
 }
@@ -52,23 +50,30 @@ export const updateOrder = (user, updatedOrder) => {
     console.log('user', user)
     console.log('this is newPet', updatedOrder)
     return axios({
-        url: `${apiUrl}/orders/${updatedOrder.id}`,
+        url:  apiUrl + `/orders/${updatedOrder.id}/`,
         method: 'PATCH',
         headers: {
-            Authorization:  `Token ${user.token}`
+            Authorization: `Token ${user.token}`
         },
-        data: { pet: updatedPet }
+        data: { 
+            name: updatedOrder.name,
+            size: updatedOrder.size,
+            price_range: updatedOrder.price_range,
+            color: updatedOrder.color,
+            vase: updatedOrder.vase,
+            flower: updatedOrder.flower
+        }
     })
 }
 
 // DELETE -> remove function
-export const removePet = (user, petId) => {
+export const removeOrder = (user, id) => {
     console.log('user', user)
     return axios({
-        url: `${apiUrl}/pets/${petId}`,
+        url:  apiUrl + `/orders/${id}/delete/`,
         method: 'DELETE',
         headers: {
-            Authorization: `Token token=${user.token}`
+            Authorization: `Token ${user.token}`
         }
     })
 }

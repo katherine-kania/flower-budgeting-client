@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { getOneOrder} from '../../api/orders'
-import { useParams } from 'react-router-dom'
+import { getOneOrder, removeOrder} from '../../api/orders'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Spinner, Container, Card, Button } from 'react-bootstrap'
 
 const cardContainerLayout = {
@@ -16,6 +16,7 @@ const ShowOrder = (props) => {
     const { id } = useParams()
     console.log('id in showOrder', id)
     console.log('user in showOrder', user)
+    const navigate = useNavigate()
     
     useEffect(() => {
         getOneOrder(id, user)
@@ -43,6 +44,26 @@ const ShowOrder = (props) => {
         )
     }
 
+    /// DELETES the order
+    const removeTheOrder = () => {
+        removeOrder(user, order.id)
+            // .then(() => {
+            //     msgAlert({
+            //         heading: 'Your custom order has been deleted.',
+            //         message: 'Please, go to CREATE ORDERS to make a new one!',
+            //         variant: 'success',
+            //     })
+            // })
+            .then(() => { navigate(`/orders/`)})
+            .catch(() => {
+                msgAlert({
+                    heading: 'something went wrong',
+                    message: 'that aint it',
+                    variant: 'danger',
+                })
+            })
+    }
+
     return (
         <>
             <Container className="fluid">
@@ -51,14 +72,21 @@ const ShowOrder = (props) => {
                     <Card.Body>
                         <Card.Text>
                             <small>Color: {order.color}</small><br/>
-                            <small>Price Range: ${order.price_range}</small><br/>
+                            <small>Price Range: {order.price_range}</small><br/>
                             {/* <Card.Img variant="top" src={`${Order.img}`} /> */}
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
+                        {/* <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
+                            Edit Order
+                        </Button> */}
+                        <Button onClick={() => removeTheOrder()}className="m-2" variant="danger">
+                            Delete Order
+                        </Button>
                     </Card.Footer>
                 </Card>
             </Container>
+            
         </>
     )
 }
