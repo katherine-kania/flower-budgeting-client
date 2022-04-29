@@ -112,6 +112,9 @@ const ShowOrder = (props) => {
                         <Button onClick={() => removeTheOrder()}className="m-2" variant="danger">
                             Delete Order
                         </Button>
+                        <Button className="m-2" variant="danger">
+                            Next
+                        </Button>
                     </Card.Footer>
                 </Card>
             </Container>
