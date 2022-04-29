@@ -14,17 +14,11 @@ code {
     monospace;
 }
 
-.header-text{
-  font-family: 'Poiret One', cursive;
-  margin: 1em;
-  font-size: 2em;
-  font-weight: bolder;
-}
 
 .header-color{
-  background-color: #e6d7cd;
-  border: medium solid #e1b493;
-  /* border-radius: 20px 20px 0 0; */
+  background-color: #f0e3da;
+  border: thin solid #e1b493;
+  /* border-radius: 5px 5px 0 0; */
 }
 
 /*Green #99a98f */
@@ -34,4 +28,28 @@ h2 {
   padding: 1.5em;
   font-family: 'Poiret One', cursive;
   font-size: 2em;
+}
+
+.btn {
+  margin-top: 1.1em;
+  background-color: #5c82a6;
+  border: none;
+  /* box-shadow: 0px 0px 2px 2px white; */
+}
+
+.btn:hover {
+  margin-top: 1.1em;
+  background-color: #99a98f;
+  border: none;
+  box-shadow: 0px 0px 2px 2px white;
+}
+
+.form-control {
+  border: none;  
+  padding: 4px 8px;
+  border-radius: 0px;
+  background-color: #f0e3da;
+}
+.form-control:focus {
+  box-shadow: 0px 0px 2px 2px white;
 }

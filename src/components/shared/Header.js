@@ -2,24 +2,35 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
+
 const linkStyle = {
     color: '#6f8760',
     textDecoration: 'none',
-	isplay: 'flex',
-	justifyContent: 'left',
-	alignItems: 'start',
-	flexFlow: 'row wrap',
 	margin: '10px',
-	fontWeight: 'bolder'
+	fontFamily: 'Quattrocento',
+	margin: '1em',
+	fontSize: '1.2em',
+	fontWeight: 'bolder',
 }
+
+const headerLogo = {
+	color: '#6f8760',
+    textDecoration: 'none',
+	margin: '10px',
+	fontFamily: 'Poiret One',
+	margin: '1em',
+	fontSize: '1.6em',
+	fontWeight: 'bolder',
+}
+
 const authenticatedOptions = (
 	<>
-		<Nav.Item className="m-2">
+		<Nav.Item className="m-2" >
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item className="m-2">
+		<Nav.Item className="m-2" >
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
@@ -67,7 +78,7 @@ const Header = ({ user }) => (
 			
 		</Navbar.Collapse>
 		<Navbar.Brand>
-            <Link to='/' style={linkStyle} className='header-text'>
+            <Link to='/' style={headerLogo} className='header-text'>
                 SHEARS AND ROOTS
             </Link>
         </Navbar.Brand>

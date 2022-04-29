@@ -6,16 +6,11 @@ const Home = (props) => {
 
 	const pageBackground = {
 		display: 'flex',
-		
 		alignItems: 'baseline',
 		flexFlow: 'row wrap',
 		backgroundColor: '#99a98f',
 		opacity: '0.8',
 		margin: '20px',
-		// backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651008203/waxflower_white_jfs7fn.jpg")`,
-		// backgroundSize: 'cover',
-		// backgroundRepeat: 'no-repeat',
-
 	}
 
 	const imgCircle = {
