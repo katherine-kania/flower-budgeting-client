@@ -55,6 +55,7 @@ const SubmitInquiry = (props) => {
     return (
         <InquiryForm 
             inquiry={inquiry}
+            order={order}
             user={user}
             handleChange={handleChange}
             handleSubmit={handleSubmit}
