@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { Form, Container, Button } from 'react-bootstrap'
+import { Form, Container, Button, Image } from 'react-bootstrap'
 import { getAllFlowers } from '../../api/flowers'
 
 

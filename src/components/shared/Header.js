@@ -18,6 +18,15 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Item>
+		<Nav.Item>
+			<Link to='flowers' style={linkStyle}>Flowers</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link to='orders/create' style={linkStyle}>Create Order</Link>
+		</Nav.Item>
+		<Nav.Item>
+			<Link to='orders' style={linkStyle}>My Orders</Link>
+		</Nav.Item>
 	</>
 )
 
@@ -43,31 +52,23 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
-		<Navbar.Brand>
-            <Link to='/' style={linkStyle}>
-                Flower App
-            </Link>
-        </Navbar.Brand>
+	<Navbar header-color expand='md' className='header-color'>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
 		<Navbar.Collapse id='basic-navbar-nav'>
 			<Nav className='ml-auto'>
 				{user && (
-					<span className='navbar-text mr-2'>Welcome, {user.email}</span>
+					<span className='navbar-text mr-2'></span>
 				)}
 				{alwaysOptions}
 				{user ? authenticatedOptions : unauthenticatedOptions}
 			</Nav>
-			<Nav.Item>
-		    	<Link to='flowers' style={linkStyle}>Flowers</Link>
-        	</Nav.Item>
-			<Nav.Item>
-		    	<Link to='orders/create' style={linkStyle}>Create Order</Link>
-        	</Nav.Item>
-			<Nav.Item>
-		    	<Link to='orders' style={linkStyle}>My Orders</Link>
-        	</Nav.Item>
+			
 		</Navbar.Collapse>
+		<Navbar.Brand>
+            <Link to='/' style={linkStyle} className='header-text'>
+                SHEARS AND ROOTS
+            </Link>
+        </Navbar.Brand>
 	</Navbar>
 )
 

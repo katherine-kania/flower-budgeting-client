@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { getOneOrder, removeOrder, updateOrder} from '../../api/orders'
 import { useParams, useNavigate } from 'react-router-dom'
-import { Spinner, Container, Card, Button } from 'react-bootstrap'
+import { Spinner, Container, Card, Button, Image } from 'react-bootstrap'
 import EditOrderModal from './EditOrderModal'
+import { getOneFlower} from '../../api/flowers'
 
 const cardContainerLayout = {
     display: 'flex',
@@ -36,6 +37,26 @@ const ShowOrder = (props) => {
                 })
             })
     }, [updated])
+
+    //// the flowers depend on the selection of colors
+    // const [flower, setFlower] = useState(null)
+    // const flowerId = order.flower
+    // /// call all flowers
+    // useEffect(() => {
+    //     getOneFlower(flowerId, user)
+    //         .then(res => {
+    //             setFlower(res.data)
+    //         })
+            
+    //         .catch(() => {
+    //             msgAlert({
+    //                 heading: 'No flowers?!!',
+    //                 message: 'no flowers found',
+    //                 variant: 'danger',
+    //             })
+    //         })
+    // }, [])
+    // console.log('the flowers in order form', flower)
 
     if (!order) {
         return (
@@ -74,9 +95,14 @@ const ShowOrder = (props) => {
                     <Card.Header>{order.name}</Card.Header>
                     <Card.Body>
                         <Card.Text>
-                            <small>Color: {order.color}</small><br/>
+                            <small>Size: {order.size}</small><br/>
+                            <small>Price: {order.price}</small><br/>
                             <small>Price Range: {order.price_range}</small><br/>
-                            {/* <Card.Img variant="top" src={`${Order.img}`} /> */}
+                            <small>Color: {order.color}</small><br/>
+                            <small>Flower: {order.flower}</small><br/>
+                            <small>Vase: {order.vase}</small><br/>
+                            {/* <Image src={flower.img} rounded/> */}
+                            {/* <Card.Img variant="top" src={`${order.img}`} /> */}
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
