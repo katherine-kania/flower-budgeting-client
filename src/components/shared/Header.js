@@ -8,8 +8,8 @@ const linkStyle = {
     textDecoration: 'none',
 	margin: '10px',
 	fontFamily: 'Quattrocento',
-	margin: '1em',
-	fontSize: '1.2em',
+	margin: '.5em',
+	fontSize: '.8em',
 	fontWeight: 'bolder',
 }
 
@@ -19,7 +19,7 @@ const headerLogo = {
 	margin: '10px',
 	fontFamily: 'Poiret One',
 	margin: '1em',
-	fontSize: '1.6em',
+	fontSize: '1.4em',
 	fontWeight: 'bolder',
 }
 

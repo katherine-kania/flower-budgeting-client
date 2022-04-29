@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 const fontStyle = {
     color: '#5c82a6',
 	fontFamily: 'Quattrocento',
-	fontSize: '1em',
+	fontSize: '.8em',
 	fontWeight: 'bolder',
     padding: '2em'
 }
@@ -28,12 +28,12 @@ const pageBackground = {
 
 const whiteBox = {
     backgroundColor: 'white',
-    margin: '20px 20px 20px 20px',
+    margin: '30px 30px 30px 30px',
     opacity: '0.7',
-    height: '50%',
-    width: '50%',
+    height: '47%',
+    width: '47%',
     position: 'absolute',
-    zIndex: '-1'
+    zIndex: '-1',
 }
 
 

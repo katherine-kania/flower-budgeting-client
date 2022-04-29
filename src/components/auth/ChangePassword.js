@@ -7,15 +7,36 @@ import messages from '../shared/AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-const ChangePassword = (props) => {
-	// constructor(props) {
-	// 	super(props)
+const fontStyle = {
+    color: '#5c82a6',
+	fontFamily: 'Quattrocento',
+	fontWeight: 'bolder',
+    margin: ''
+}
+const pageBackground = {
+    backgroundColor: '#99a98f',
+    backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651008199/leucadendron_red_ugopsm.jpg")`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    margin: '20px 20px 20px 20px',
+    height: '50%',
+    width: '93%',
+    opacity: '0.8',
+    position: 'absolute',
+    zIndex: '-1'
+}
 
-	// 	this.state = {
-	// 		oldPassword: '',
-	// 		newPassword: '',
-	// 	}
-	// }
+const whiteBox = {
+    backgroundColor: 'white',
+    margin: '30px 30px 30px 30px',
+    opacity: '0.7',
+    height: '47%',
+    width: '50%',
+    position: 'absolute',
+    zIndex: '-1',
+}
+
+const ChangePassword = (props) => {
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
 
@@ -53,7 +74,7 @@ const ChangePassword = (props) => {
 
 
     return (
-        <div className='row'>
+        <div className='row' style={fontStyle}>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Change Password</h3>
                 <Form onSubmit={onChangePassword}>
@@ -84,6 +105,8 @@ const ChangePassword = (props) => {
                     </Button>
                 </Form>
             </div>
+            <div style={pageBackground}> </div>
+            <div style={whiteBox}> </div>
         </div>
     )
 }
