@@ -19,6 +19,7 @@ import IndexOrders from './components/orders/IndexOrders'
 import ShowOrder from './components/orders/ShowOrder'
 
 
+
 const App = () => {
 
   const [user, setUser] = useState(null)
@@ -59,70 +60,71 @@ const App = () => {
 						path='/sign-in/'
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
-          <Route
-            path='/sign-out/'
-            element={
-              <RequireAuth user={user}>
-                <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path='/change-password/'
-            element={
-              <RequireAuth user={user}>
-                <ChangePassword msgAlert={msgAlert} user={user} />
-              </RequireAuth>}
-          />
-          <Route
-            path='/flowers/'
-            element={
-				<RequireAuth user={user}>
-					<IndexFlowers msgAlert={msgAlert} user={user} />
-				</RequireAuth>
-			  }
-        	/>
-          <Route
-            path='/flowers/:id/'
-            element={
-				<RequireAuth user={user}>
-					<ShowFlower msgAlert={msgAlert} user={user} />
-				</RequireAuth>
-			  }
-        	/>
-          <Route
-            path='/orders/'
-            element={
-				<RequireAuth user={user}>
-					<IndexOrders msgAlert={msgAlert} user={user} />
-				</RequireAuth>
-			  }
-        	/>
-          <Route
-            path='/orders/create'
-            element={
-				<RequireAuth user={user}>
-					<CreateOrder msgAlert={msgAlert} user={user} />
-				</RequireAuth>
-			  }
-        	/>
-          <Route
-            path='/orders/:id/'
-            element={
-				<RequireAuth user={user}>
-					<ShowOrder msgAlert={msgAlert} user={user} />
-				</RequireAuth>
-			  }
-        	/>
+				<Route
+					path='/sign-out/'
+					element={
+					<RequireAuth user={user}>
+						<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+					</RequireAuth>
+					}
+					/>
+				<Route
+					path='/change-password/'
+					element={
+					<RequireAuth user={user}>
+						<ChangePassword msgAlert={msgAlert} user={user} />
+					</RequireAuth>}
+					/>
+				
+				<Route
+					path='/flowers/'
+					element={
+						<RequireAuth user={user}>
+							<IndexFlowers msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}
+					/>
+				<Route
+					path='/flowers/:id/'
+					element={
+						<RequireAuth user={user}>
+							<ShowFlower msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}
+					/>
+				<Route
+					path='/orders/'
+					element={
+						<RequireAuth user={user}>
+							<IndexOrders msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}
+					/>
+				<Route
+					path='/orders/create'
+					element={
+						<RequireAuth user={user}>
+							<CreateOrder msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}
+					/>
+				<Route
+					path='/orders/:id/'
+					element={
+						<RequireAuth user={user}>
+							<ShowOrder msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}
+					/>
 				</Routes>
-				{msgAlerts.map((msgAlert) => (
-					<AutoDismissAlert
-						key={msgAlert.id}
-						heading={msgAlert.heading}
-						variant={msgAlert.variant}
-						message={msgAlert.message}
-						id={msgAlert.id}
-						deleteAlert={deleteAlert}
+					{msgAlerts.map((msgAlert) => (
+						<AutoDismissAlert
+							key={msgAlert.id}
+							heading={msgAlert.heading}
+							variant={msgAlert.variant}
+							message={msgAlert.message}
+							id={msgAlert.id}
+							deleteAlert={deleteAlert}
 					/>
 				))}
 			</Fragment>

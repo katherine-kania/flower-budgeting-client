@@ -5,52 +5,57 @@ const Home = (props) => {
 	console.log('props in home', props)
 
 	const pageBackground = {
-		display: 'flex',
-		alignItems: 'baseline',
-		flexFlow: 'row wrap',
 		backgroundColor: '#99a98f',
 		opacity: '0.8',
 		margin: '20px',
+		display: 'flex',
+		justifyContent: 'center',
+		flexFlow: 'row wrap',
 	}
 
 	const imgCircle = {
-		display: 'flex',
-		justifyContent: 'left',
 		padding: '20vh',
-		backgroundColor: 'black',
 		height:'50vh',
 		width:'50vh',
 		borderRadius: '100%',
 		backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651202308/shearsandroots01_small_yvvzc9.jpg")`,
 		backgroundSize: 'cover',
 		backgroundRepeat: 'no-repeat',
+		border: 'thin solid grey'
+		
 	}
-	const greenCircle = {
-		display: 'flex',
-		justifyContent: 'right',
-		padding: '30vh',
-		backgroundColor: 'white',
+	const colorCircle = {
+		padding: '22vh',
+		backgroundColor: '#5c82a6',
 		height:'20vh',
 		width:'20vh',
 		borderRadius: '100%',
-		opacity: '0.9',
-		marginLeft: '100px'
+		opacity: '0.5',
+		position: 'relative', 
+		zIndex: '-1',
+	}
+
+	const h2Font = {
+		fontFamily: 'Poiret One',
+		color: "white",
+		width: "60vh", 
+		float: 'right',
+		padding: '1.4em',
+		fontSize: '1.5em',
+		fontWeight: 'bolder',
 	}
 
 
 	return (
 		<>
 		<div style={pageBackground}>
-			
-			<h2 style={{color: "#5c82a6", zIndex: "3", width: "50%", justifyContent: 'right'}}>
+			<p style={h2Font}>
 				Hi there!
-				Join our site to get access to the floral dictionary, learn a bit more about the 
+				Welcome to our floral site. Here you can learn a bit more about the 
 				studio and make, save and inquire custom floral orders through our portal.
-			</h2>
+			</p>
 			<div style={imgCircle}>
-				<div style={greenCircle}>
-					<div style={{width: "200px"}}>
-					</div>
+				<div style={colorCircle}>
 				</div>
 			</div>
 			

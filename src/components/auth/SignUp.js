@@ -17,7 +17,7 @@ const fontStyle = {
 }
 const pageBackground = {
     backgroundColor: '#99a98f',
-    backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651008202/seaholly_violet_mthisr.jpg")`,
+    backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651343912/istockphoto-544125236-170667a_nqhtm0.jpg")`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     margin: '20px 20px 20px 20px',
