@@ -37,8 +37,6 @@ const whiteBox = {
 }
 
 
-
-
 const SignIn = (props) => {
 
     const [email, setEmail] = useState('')

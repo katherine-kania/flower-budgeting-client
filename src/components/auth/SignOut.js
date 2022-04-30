@@ -6,32 +6,33 @@ import { signOut } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
 
 const fontStyle = {
-    color: '#5c82a6',
-	fontFamily: 'Quattrocento',
+    color: 'white',
+	fontFamily: 'Poiret One',
+	fontSize: '1em',
 	fontWeight: 'bolder',
-    margin: ''
+    padding: '5em'
 }
 const pageBackground = {
-    backgroundColor: '#99a98f',
-    backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651008202/snapdragon_yellow_ms5n9i.jpg")`,
+    backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651202308/shearsandroots01_small_yvvzc9.jpg")`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    margin: '20px 20px 20px 20px',
+    margin: '5em',
     height: '50%',
-    width: '93%',
+    width: '80%',
     opacity: '0.8',
     position: 'absolute',
-    zIndex: '-1'
+    zIndex: '-1',
 }
 
 const whiteBox = {
-    backgroundColor: 'white',
+    backgroundColor: '#5c82a6',
     margin: '30px 30px 30px 30px',
     opacity: '0.7',
     height: '47%',
-    width: '70%',
+    width: '47%',
     position: 'absolute',
     zIndex: '-1',
+    boxShadow: '0 30px 40px white',
 }
 
 const SignOut = (props) => {
@@ -42,13 +43,6 @@ const SignOut = (props) => {
 
     const onSignOut = () => {
 		signOut(user)
-			.finally(() =>
-				msgAlert({
-					heading: 'Signed Out Successfully',
-					message: messages.signOutSuccess,
-					variant: 'success',
-				})
-			)
 			.finally(() => navigate('/'))
 			.finally(() => clearUser())
     }
@@ -59,8 +53,8 @@ const SignOut = (props) => {
 
 	return (
 		<>
-            <div className='row' style={fontStyle}>
-                <div className='col-sm-10 col-md-8  mt-5' style={{margin: '10em'}}>
+            <div className='row'>
+                <div className='col-sm-10 col-md-8  mt-5'style={fontStyle}>
                     <h4>Are you sure you want to sign out?</h4>
                     <h4>We hate to see you go...</h4>
                     <div>

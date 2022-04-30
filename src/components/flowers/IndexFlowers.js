@@ -10,7 +10,7 @@ const pageBackground = {
     display: 'flex',
     justifyContent: 'center',
     flexFlow: 'row wrap',
-    padding: '1em',
+    padding: '2em',
 }
 
 const pFont = {
@@ -54,7 +54,7 @@ const IndexFlowers = (props) => {
     if (flowers.length > 0) {
         flowerCards = flowers.map(flower => (
             <div >
-                <div key={flower.id} style={{ width: '20%'}} className="m-2">
+                <div key={flower.id} className="m-2">
                     <div>
                         <div>
                         <Link to={`/flowers/${flower.id}`}>

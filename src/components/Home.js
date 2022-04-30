@@ -52,8 +52,8 @@ const Home = (props) => {
 		<div style={pageBackground}>
 			<p style={pFont}>
 				Hi there!
-				Welcome to our floral site. Here you can learn a bit more about the 
-				studio and make, save and inquire custom floral orders through our portal.
+				Welcome to our floral site. Here you can learn a bit more about flowers and the 
+				studio. Through our site you can make, save and inquire custom floral orders from us.
 			</p>
 			<div style={imgCircle}>
 				<div style={colorCircle}>

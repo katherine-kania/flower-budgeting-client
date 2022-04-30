@@ -3,25 +3,22 @@ import { getOneFlower} from '../../api/flowers'
 import { useParams } from 'react-router-dom'
 import { Spinner, Container, Card, Button } from 'react-bootstrap'
 
-const cardContainerLayout = {
+const pageBackground = {
+    backgroundColor: '#99a98f',
+    opacity: '0.85',
+    margin: '20px',
     display: 'flex',
     justifyContent: 'center',
     flexFlow: 'row wrap',
-    opacity: '0.7',
+    padding: '2em',
 }
 
-const fontStyle = {
-    color: '#5c82a6',
-	fontFamily: 'Quattrocento',
-	fontWeight: 'bolder',
-    margin: '',
-    backgroundColor: 'white',
-    margin: '30px 30px 30px 30px',
-    opacity: '0.7',
-    height: '47%',
-    width: '47%',
-    position: 'absolute',
-    zIndex: '-1',
+const pFont = {
+    fontFamily: 'Poiret One',
+    color: "white",
+    float: 'center',
+    fontSize: '1.4em',
+    fontWeight: 'bolder',
 }
 
 const ShowFlower = (props) => {
@@ -60,20 +57,21 @@ const ShowFlower = (props) => {
 
     return (
         <>
-            <Container className="fluid" style={cardContainerLayout}>
-                <Card>
-                    <Card.Header>{flower.name}</Card.Header>
-                    <Card.Body>
-                        <Card.Text>
+            <Container className="fluid" style={pageBackground}>
+                <div>
+                    <h2 style={pFont}>{flower.name}</h2>
+                    <div>
+                        <div style={pFont}>
                             <small>Color: {flower.color}</small><br/>
                             <small>Estimated price per stem: ${flower.price_stem}</small><br/>
                             <Card.Img variant="top" src={`${flower.img}`} />
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    </Card.Footer>
-                </Card>
+                        </div>
+                    </div>
+                </div>
             </Container>
+            <Button className="m-2" variant="danger">
+                Back to All Flowers
+            </Button>
         </>
     )
 }
