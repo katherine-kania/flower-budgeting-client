@@ -15,9 +15,9 @@ const Home = (props) => {
 	}
 
 	const imgCircle = {
-		padding: '20vh',
-		height:'50vh',
-		width:'50vh',
+		padding: '25vh',
+		height:'55vh',
+		width:'55vh',
 		borderRadius: '100%',
 		backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651202308/shearsandroots01_small_yvvzc9.jpg")`,
 		backgroundSize: 'cover',
@@ -27,12 +27,13 @@ const Home = (props) => {
 	}
 
 	const colorCircle = {
-		padding: '22vh',
+		padding: '27vh',
 		backgroundColor: '#5c82a6',
 		borderRadius: '100%',
 		opacity: '0.5',
 		position: 'relative', 
 		zIndex: '-1',
+		right: '20em',
 	}
 
 	const h2Font = {
