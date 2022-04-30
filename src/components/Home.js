@@ -11,6 +11,7 @@ const Home = (props) => {
 		display: 'flex',
 		justifyContent: 'center',
 		flexFlow: 'row wrap',
+		padding: '2em'
 	}
 
 	const imgCircle = {
@@ -24,11 +25,10 @@ const Home = (props) => {
 		border: 'thin solid grey'
 		
 	}
+
 	const colorCircle = {
 		padding: '22vh',
 		backgroundColor: '#5c82a6',
-		height:'20vh',
-		width:'20vh',
 		borderRadius: '100%',
 		opacity: '0.5',
 		position: 'relative', 
@@ -40,8 +40,8 @@ const Home = (props) => {
 		color: "white",
 		width: "60vh", 
 		float: 'right',
-		padding: '1.4em',
-		fontSize: '1.5em',
+		padding: '1.3em',
+		fontSize: '1.4em',
 		fontWeight: 'bolder',
 	}
 
