@@ -74,7 +74,6 @@ const OrderForm = (props) => {
         violet: flowers,
         white: flowers,
         yellow: flowers
-        
     }
     // console.log("this is the colors", colors)
     

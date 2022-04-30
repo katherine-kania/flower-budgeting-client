@@ -3,29 +3,24 @@ import { getAllFlowers } from '../../api/flowers'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const cardContainerLayout = {
+const pageBackground = {
+    backgroundColor: '#99a98f',
+    opacity: '0.85',
+    margin: '20px',
     display: 'flex',
     justifyContent: 'center',
     flexFlow: 'row wrap',
-    opacity: '0.7',
-    position: 'absolute',
-    borderRadius: '100%',
-    color: '#5c82a6',
-	fontFamily: 'Quattrocento',
-	fontWeight: 'bolder',
+    padding: '1em',
 }
 
-const greenCircle = {
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-    height:'40vh',
-    width:'40vh',
-    borderRadius: '100%',
-    opacity: '0.9',
-    marginLeft: '100px',
-    zIndex: '-1',
+const pFont = {
+    fontFamily: 'Poiret One',
+    color: "white",
+    float: 'center',
+    fontSize: '1.4em',
+    fontWeight: 'bolder',
 }
+
 
 const IndexFlowers = (props) => {
     const [flowers, setFlowers] = useState(null)
@@ -58,30 +53,38 @@ const IndexFlowers = (props) => {
 
     if (flowers.length > 0) {
         flowerCards = flowers.map(flower => (
-            <div style={greenCircle}>
-                <div key={flower.id} style={{ width: '20%'}} className="m-4">
+            <div >
+                <div key={flower.id} style={{ width: '20%'}} className="m-2">
                     <div>
                         <div>
+                        <Link to={`/flowers/${flower.id}`}>
                             <Card.Img style={{ 
-                                width: '250px', 
-                                height: '250px',
+                                width: '200px', 
+                                height: '200px',
                                 backgroundSize: 'contain',
-		                        backgroundRepeat: 'no-repeat'
-                            }}variant="top" src={`${flower.img}`} />
-                            <Link to={`/flowers/${flower.id}`}>{flower.name}</Link>
+		                        backgroundRepeat: 'no-repeat',
+                                borderRadius: '100%',
+                                boxShadow: '5px 5px 15px grey',
+                                }}variant="top" src={`${flower.img}`} />
+                        </Link>
                         </div>
                     </div>
                 </div>
             </div>
         ))
+        
     }
 
     return (
         <>
-            <h3>The flower dictionary</h3>
-                <div style={cardContainerLayout}>
+            <div style={pageBackground}>
+                <p style={pFont}>
+                    Click on a flower to learn more about it!
+                </p>
+                <div style={pageBackground}>
                     {flowerCards}
                 </div>
+            </div>
         </>
     )
 }

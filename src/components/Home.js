@@ -36,7 +36,7 @@ const Home = (props) => {
 		right: '20em',
 	}
 
-	const h2Font = {
+	const pFont = {
 		fontFamily: 'Poiret One',
 		color: "white",
 		width: "60vh", 
@@ -50,7 +50,7 @@ const Home = (props) => {
 	return (
 		<>
 		<div style={pageBackground}>
-			<p style={h2Font}>
+			<p style={pFont}>
 				Hi there!
 				Welcome to our floral site. Here you can learn a bit more about the 
 				studio and make, save and inquire custom floral orders through our portal.
