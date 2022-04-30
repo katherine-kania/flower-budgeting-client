@@ -6,17 +6,14 @@ import { Link } from 'react-router-dom'
 const linkStyle = {
     color: '#6f8760',
     textDecoration: 'none',
-	margin: '10px',
-	fontFamily: 'Quattrocento',
+	fontFamily: 'Poiret One',
 	margin: '.5em',
-	fontSize: '.8em',
 	fontWeight: 'bolder',
 }
 
 const headerLogo = {
 	color: '#6f8760',
     textDecoration: 'none',
-	margin: '10px',
 	fontFamily: 'Poiret One',
 	margin: '1em',
 	fontSize: '1.4em',
@@ -25,6 +22,15 @@ const headerLogo = {
 
 const authenticatedOptions = (
 	<>
+		<Nav.Item className="m-2">
+			<Link to='flowers' style={linkStyle}>Flowers</Link>
+		</Nav.Item>
+		<Nav.Item className="m-2">
+			<Link to='orders/create' style={linkStyle}>Create Order</Link>
+		</Nav.Item>
+		<Nav.Item className="m-2">
+			<Link to='orders' style={linkStyle}>My Orders</Link>
+		</Nav.Item>
 		<Nav.Item className="m-2" >
 			<Link to='change-password' style={linkStyle}>
 				Change Password
@@ -34,15 +40,6 @@ const authenticatedOptions = (
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
-		</Nav.Item>
-		<Nav.Item className="m-2">
-			<Link to='flowers' style={linkStyle}>Flowers</Link>
-		</Nav.Item>
-		<Nav.Item className="m-2">
-			<Link to='orders/create' style={linkStyle}>Create Order</Link>
-		</Nav.Item>
-		<Nav.Item className="m-2">
-			<Link to='orders' style={linkStyle}>My Orders</Link>
 		</Nav.Item>
 	</>
 )

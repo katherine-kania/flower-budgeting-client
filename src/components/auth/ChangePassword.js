@@ -8,32 +8,32 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const fontStyle = {
-    color: '#5c82a6',
-	fontFamily: 'Quattrocento',
+    color: 'white',
+	fontFamily: 'Poiret One',
+	fontSize: '1em',
 	fontWeight: 'bolder',
-    margin: ''
 }
 const pageBackground = {
-    backgroundColor: '#99a98f',
-    backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651008199/leucadendron_red_ugopsm.jpg")`,
+    backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651353936/P1010232_npzsfn.jpg")`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    margin: '20px 20px 20px 20px',
+    margin: '5em',
     height: '50%',
-    width: '93%',
+    width: '80%',
     opacity: '0.8',
     position: 'absolute',
-    zIndex: '-1'
+    zIndex: '-1',
 }
 
 const whiteBox = {
-    backgroundColor: 'white',
-    margin: '30px 30px 30px 30px',
+    backgroundColor: '#5c82a6',
+    margin: '30px',
     opacity: '0.7',
     height: '47%',
-    width: '50%',
+    width: '47%',
     position: 'absolute',
     zIndex: '-1',
+    boxShadow: '0 30px 40px white',
 }
 
 const ChangePassword = (props) => {
