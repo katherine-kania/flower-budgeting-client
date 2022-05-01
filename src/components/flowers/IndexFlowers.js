@@ -17,7 +17,7 @@ const pFont = {
     fontFamily: 'Poiret One',
     color: "white",
     float: 'center',
-    fontSize: '1.em',
+    fontSize: '1em',
     fontWeight: 'bolder',
 }
 
@@ -65,7 +65,8 @@ const IndexFlowers = (props) => {
 		                        backgroundRepeat: 'no-repeat',
                                 borderRadius: '100%',
                                 border: 'thin solid grey'
-                                }}variant="top" src={`${flower.img}`} />
+                                }} 
+                                variant="top" src={`${flower.img}`} />
                         </Link>
                         </div>
                     </div>

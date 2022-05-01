@@ -3,10 +3,35 @@ import { getAllOrders } from '../../api/orders'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const cardContainerLayout = {
+const pageBackground = {
+    backgroundColor: '#99a98f',
+    opacity: '0.85',
+    margin: '20px',
     display: 'flex',
     justifyContent: 'center',
-    flexFlow: 'row wrap'
+    flexFlow: 'row wrap',
+    padding: '2em',
+}
+
+const pFont = {
+    fontFamily: 'Poiret One',
+    color: "white",
+    float: 'center',
+    fontSize: '1.3em',
+    fontWeight: 'bolder',
+    textDecoration: 'none',
+    textTransform: 'capitalize',
+}
+
+const circle = {
+    width: '200px', 
+    height: '200px',
+    borderRadius: '100%',
+    border: 'thin solid grey',
+    backgroundColor: 'rgb(196, 98, 105)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
 }
 
 const IndexOrders = (props) => {
@@ -39,23 +64,25 @@ const IndexOrders = (props) => {
 
     if (orders.length > 0) {
         orderCards = orders.map(order => (
-            <Card key={order.id} style={{ width: '20%' }} className="m-4">
-                <Card.Header>{order.name}</Card.Header>
-                <Card.Body>
-                    <Card.Text>
-                        {/* <Card.Img variant="top" src={`${order.img}`} /> */}
-                        <Link to={`/orders/${order.id}`}>View {order.name}</Link>
-                    </Card.Text>
-                </Card.Body>
-            </Card>
+            <div style={circle} key={order.id} className="m-4">
+ 
+                 <Link style={pFont} to={`/orders/${order.id}`}>Order {order.name}</Link>
+
+            </div>
         ))
     }
 
     return (
         <>
-            <h3>My orders</h3>
-            <div style={cardContainerLayout}>
-                {orderCards}
+            <div style={pageBackground}>
+                <p style={pFont}>
+                    <strong>My Saved Orders</strong>
+                </p>
+                <div >
+                    <div style={pageBackground}>
+                        {orderCards}
+                    </div>
+                </div>
             </div>
         </>
     )

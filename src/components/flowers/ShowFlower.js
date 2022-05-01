@@ -19,7 +19,7 @@ const pFont = {
     fontFamily: 'Poiret One',
     color: "white",
     float: 'center',
-    fontSize: '1.4em',
+    fontSize: '1.3em',
     fontWeight: 'bolder',
     textTransform: 'capitalize'
 }
