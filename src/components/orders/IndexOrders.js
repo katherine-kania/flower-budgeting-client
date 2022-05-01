@@ -8,6 +8,10 @@ const pageBackground = {
     opacity: '0.85',
     margin: '20px',
     display: 'flex',
+}
+
+const alignText = {
+    display: 'flex',
     justifyContent: 'center',
     flexFlow: 'row wrap',
     padding: '2em',
@@ -74,16 +78,21 @@ const IndexOrders = (props) => {
 
     return (
         <>
-            <div style={pageBackground}>
-                <p style={pFont}>
-                    <strong>My Saved Orders</strong>
-                </p>
+        <div style={pageBackground}>
+
+                <div style={alignText}>
+                    <p style={pFont}>
+                        <strong>My Saved Orders</strong>
+                    </p>
+                </div>
                 <div >
-                    <div style={pageBackground}>
+            <div>
+                    <div style={pageBackground} >
                         {orderCards}
                     </div>
                 </div>
             </div>
+        </div>
         </>
     )
 }

@@ -46,8 +46,8 @@ const EditOrderModal = (props) => {
 
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton></Modal.Header>
-            <Modal.Body>
+            <div closeButton></div>
+            <div style = {{width: '100%'}}>
                 <OrderForm 
                     order={order}
                     user={user}
@@ -55,7 +55,7 @@ const EditOrderModal = (props) => {
                     handleSubmit={handleSubmit}
                     heading="Edit your order!"
                 />
-            </Modal.Body>
+            </div>
         </Modal>
     )
 }

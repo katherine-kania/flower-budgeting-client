@@ -5,10 +5,23 @@ import { Spinner, Container, Card, Button, Image } from 'react-bootstrap'
 import EditOrderModal from './EditOrderModal'
 import { getOneFlower} from '../../api/flowers'
 
-const cardContainerLayout = {
+const pageBackground = {
+    backgroundColor: '#99a98f',
+    opacity: '0.85',
+    margin: '20px',
     display: 'flex',
-    justifyContent: 'center',
-    flexFlow: 'row wrap'
+    alignContent: 'center',
+    flexFlow: 'column wrap',
+    padding: '2em',
+}
+
+const pFont = {
+    fontFamily: 'Poiret One',
+    color: "white",
+    float: 'center',
+    fontSize: '1.3em',
+    fontWeight: 'bolder',
+    textTransform: 'capitalize'
 }
 
 const ShowOrder = (props) => {
@@ -90,33 +103,32 @@ const ShowOrder = (props) => {
 
     return (
         <>
-            <Container className="fluid">
-                <Card>
-                    <Card.Header>{order.name}</Card.Header>
-                    <Card.Body>
-                        <Card.Text>
+            <Container >
+                <div style={pageBackground}>
+                    <h2 style={pFont}>{order.name}</h2>
+                    <div>
+                        <div  style={pFont}>
                             <small>Size: {order.size}</small><br/>
-                            <small>Price: {order.price}</small><br/>
-                            <small>Price Range: {order.price_range}</small><br/>
+                            <small>Price Range: ${order.price_range}</small><br/>
                             <small>Color: {order.color}</small><br/>
                             <small>Flower: {order.flower}</small><br/>
                             <small>Vase: {order.vase}</small><br/>
                             {/* <Image src={flower.img} rounded/> */}
                             {/* <Card.Img variant="top" src={`${order.img}`} /> */}
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
+                        </div>
+                    </div>
+                    <div>
+                        <Button onClick={() => setModalOpen(true)} className="m-2">
                             Edit Order
                         </Button>
-                        <Button onClick={() => removeTheOrder()}className="m-2" variant="danger">
+                        <Button onClick={() => removeTheOrder()}className="m-2">
                             Delete Order
                         </Button>
-                        <Button className="m-2" variant="danger">
+                        <Button className="m-2">
                             Next
                         </Button>
-                    </Card.Footer>
-                </Card>
+                    </div>
+                </div>
             </Container>
             <EditOrderModal 
                 order={order}
