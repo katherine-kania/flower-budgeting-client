@@ -2,14 +2,16 @@ import React, {useState, useEffect} from 'react'
 import { getOneFlower} from '../../api/flowers'
 import { useParams } from 'react-router-dom'
 import { Spinner, Container, Card, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
 
 const pageBackground = {
     backgroundColor: '#99a98f',
     opacity: '0.85',
     margin: '20px',
     display: 'flex',
-    justifyContent: 'center',
-    flexFlow: 'row wrap',
+    alignContent: 'center',
+    flexFlow: 'column wrap',
     padding: '2em',
 }
 
@@ -19,6 +21,7 @@ const pFont = {
     float: 'center',
     fontSize: '1.4em',
     fontWeight: 'bolder',
+    textTransform: 'capitalize'
 }
 
 const ShowFlower = (props) => {
@@ -57,21 +60,28 @@ const ShowFlower = (props) => {
 
     return (
         <>
-            <Container className="fluid" style={pageBackground}>
-                <div>
+            <Container>
+                <div style={pageBackground}>
                     <h2 style={pFont}>{flower.name}</h2>
                     <div>
                         <div style={pFont}>
                             <small>Color: {flower.color}</small><br/>
                             <small>Estimated price per stem: ${flower.price_stem}</small><br/>
-                            <Card.Img variant="top" src={`${flower.img}`} />
+                            <Card.Img style={{ 
+                                width: '400px', 
+                                height: '400px',
+                                backgroundSize: 'contain',
+		                        backgroundRepeat: 'no-repeat'
+                            }} variant="top" src={`${flower.img}`} />
                         </div>
                     </div>
+                <div>
+                    <Link to="/flowers/" className="btn btn-primary">
+                        Back to all flowers
+                    </Link>
+                </div>
                 </div>
             </Container>
-            <Button className="m-2" variant="danger">
-                Back to All Flowers
-            </Button>
         </>
     )
 }
