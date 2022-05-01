@@ -11,7 +11,7 @@ const fontStyle = {
 	fontFamily: 'Poiret One',
 	fontSize: '1em',
 	fontWeight: 'bolder',
-    padding: '3em',
+    padding: '1em',
 }
 const pageBackground = {
     backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651202373/P1010239_rwedkr.jpg")`,

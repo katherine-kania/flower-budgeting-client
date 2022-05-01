@@ -17,7 +17,7 @@ const pFont = {
     fontFamily: 'Poiret One',
     color: "white",
     float: 'center',
-    fontSize: '1.4em',
+    fontSize: '1.em',
     fontWeight: 'bolder',
 }
 
@@ -64,7 +64,7 @@ const IndexFlowers = (props) => {
                                 backgroundSize: 'contain',
 		                        backgroundRepeat: 'no-repeat',
                                 borderRadius: '100%',
-                                boxShadow: '5px 5px 15px grey',
+                                border: 'thin solid grey'
                                 }}variant="top" src={`${flower.img}`} />
                         </Link>
                         </div>
@@ -79,7 +79,7 @@ const IndexFlowers = (props) => {
         <>
             <div style={pageBackground}>
                 <p style={pFont}>
-                    Click on a flower to learn more about it!
+                    <strong>Click on a flower to learn more about it!</strong>
                 </p>
                 <div style={pageBackground}>
                     {flowerCards}

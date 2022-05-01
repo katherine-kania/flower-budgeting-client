@@ -13,7 +13,7 @@ const fontStyle = {
 	fontFamily: 'Poiret One',
 	fontSize: '1em',
 	fontWeight: 'bolder',
-    padding: '3em',
+    padding: '1em',
 }
 const pageBackground = {
     backgroundImage: `url("https://res.cloudinary.com/dk0n7fyjj/image/upload/v1651353936/P1010232_npzsfn.jpg")`,
@@ -31,7 +31,7 @@ const whiteBox = {
     backgroundColor: '#5c82a6',
     margin: '30px 30px 30px 30px',
     opacity: '0.7',
-    height: '47%',
+    height: '50%',
     width: '47%',
     position: 'absolute',
     zIndex: '-1',
@@ -73,7 +73,7 @@ const SignUp = (props) => {
     return (
         <div className='row'>
             <div className='col-sm-10 col-md-8 mx-auto mt-5' style={fontStyle}>
-                <h3>Sign Up</h3>
+                <h3><strong>Sign Up</strong></h3>
                 <Form onSubmit={onSignUp}>
                     <Form.Group controlId='email'>
                         <Form.Label>Email address</Form.Label>

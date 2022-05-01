@@ -75,7 +75,7 @@ const Header = ({ user }) => (
 			
 		</Navbar.Collapse>
 		<Navbar.Brand>
-            <Link to='/' style={headerLogo} className='header-text'>
+            <Link to='/' style={headerLogo}>
                 SHEARS AND ROOTS
             </Link>
         </Navbar.Brand>
