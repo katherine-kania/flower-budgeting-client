@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { getAllOrders } from '../../api/orders'
-import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { getOneFlower} from '../../api/flowers'
 
 const pageBackground = {
     backgroundColor: '#99a98f',
     opacity: '0.85',
     margin: '20px',
     display: 'flex',
+    justifyContent: 'center',
+    flexFlow: 'row wrap',
 }
 
 const alignText = {
     display: 'flex',
     justifyContent: 'center',
     flexFlow: 'row wrap',
-    padding: '2em',
+    paddingTop: '2em',
 }
 
 const pFont = {
@@ -40,7 +42,7 @@ const circle = {
 
 const IndexOrders = (props) => {
     const [orders, setOrders] = useState(null)
-    const {user, msgAlert} = props
+    const {order, user, msgAlert} = props
     // console.log('user in index orders',user)
     // console.log('orders in index orders',orders)
     useEffect(() => {
@@ -75,7 +77,6 @@ const IndexOrders = (props) => {
             </div>
         ))
     }
-
     return (
         <>
         <div style={pageBackground}>
@@ -87,7 +88,7 @@ const IndexOrders = (props) => {
                 </div>
                 <div >
             <div>
-                    <div style={pageBackground} >
+                    <div style={alignText} >
                         {orderCards}
                     </div>
                 </div>

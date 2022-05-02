@@ -5,6 +5,7 @@ import { Spinner, Container, Card, Button, Image } from 'react-bootstrap'
 import EditOrderModal from './EditOrderModal'
 import { getOneFlower} from '../../api/flowers'
 
+
 const pageBackground = {
     backgroundColor: '#99a98f',
     opacity: '0.85',
@@ -29,6 +30,7 @@ const ShowOrder = (props) => {
     const [order, setOrder] = useState(null)
     const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
+    const [flower, setFlower] = useState({})
     const {user, msgAlert} = props
     const { id } = useParams()
     console.log('id in showOrder', id)
@@ -40,37 +42,51 @@ const ShowOrder = (props) => {
             .then(res => {
                 console.log('order in showOrder', res.data.order)
                 setOrder(res.data.order)
+                
+                getOneFlower(res.data.order.flower, user)
+                .then(res => {
+                console.log('flower in showFlower', res.data.flower)
+                setFlower(res.data.flower)
+                })
             })
-        
+
+            
             .catch(() => {
                 msgAlert({
                     heading: 'No Order found',
                     message: 'Order missing',
                     variant: 'danger',
                 })
-            })
-    }, [updated])
+        })
 
-    //// the flowers depend on the selection of colors
-    // const [flower, setFlower] = useState(null)
-    // const flowerId = order.flower
-    // /// call all flowers
+    }, [updated])
+    
+    console.log('flower in showFlower', flower)
+    console.log(' this is the order in showOrder', order)
+    
+    // const flowerId = {
+    //     flowerId: order.flower 
+    // }
+    
     // useEffect(() => {
-    //     getOneFlower(flowerId, user)
+    //         getOneFlower(flowerId, user)
     //         .then(res => {
-    //             setFlower(res.data)
+    //             console.log('flower in showFlower', res.data.flower)
+    //             setFlower({flower: res.data.flower})
+    //             console.log('flower in showFlower', flower)
     //         })
-            
     //         .catch(() => {
     //             msgAlert({
-    //                 heading: 'No flowers?!!',
-    //                 message: 'no flowers found',
+    //                 heading: 'No flower found',
+    //                 message: 'flower missing',
     //                 variant: 'danger',
     //             })
     //         })
-    // }, [])
-    // console.log('the flowers in order form', flower)
-
+    
+    //     }, [])
+    
+    // console.log('flower in showOrder', flower)
+    
     if (!order) {
         return (
             <Container fluid className="justify-content-center">
@@ -81,25 +97,20 @@ const ShowOrder = (props) => {
         )
     }
 
+    
     /// DELETES the order
     const removeTheOrder = () => {
         removeOrder(user, order.id)
-            // .then(() => {
-            //     msgAlert({
-            //         heading: 'Your custom order has been deleted.',
-            //         message: 'Please, go to CREATE ORDERS to make a new one!',
-            //         variant: 'success',
-            //     })
-            // })
-            .then(() => { navigate(`/orders/`)})
-            .catch(() => {
-                msgAlert({
-                    heading: 'something went wrong',
-                    message: 'that aint it',
-                    variant: 'danger',
-                })
+        .then(() => { navigate(`/orders/`)})
+        .catch(() => {
+            msgAlert({
+                heading: 'something went wrong',
+                message: 'that aint it',
+                variant: 'danger',
             })
+        })
     }
+
 
     return (
         <>
@@ -109,12 +120,15 @@ const ShowOrder = (props) => {
                     <div>
                         <div  style={pFont}>
                             <small>Size: {order.size}</small><br/>
-                            <small>Price Range: ${order.price_range}</small><br/>
+                            <small>Price Range: {order.price_range}</small><br/>
                             <small>Color: {order.color}</small><br/>
-                            <small>Flower: {order.flower}</small><br/>
                             <small>Vase: {order.vase}</small><br/>
-                            {/* <Image src={flower.img} rounded/> */}
-                            {/* <Card.Img variant="top" src={`${order.img}`} /> */}
+                            <small>Flower: {flower.name}</small><br/>
+                            <Card.Img style={{ 
+                                width: '300px', 
+                                height: '300px',
+                                objectFit: 'fill'
+                            }} variant="top" src={`${flower.img}`} />
                         </div>
                     </div>
                     <div>

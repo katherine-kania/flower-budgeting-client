@@ -59,12 +59,12 @@ const IndexFlowers = (props) => {
                         <div>
                         <Link to={`/flowers/${flower.id}`}>
                             <Card.Img style={{ 
-                                width: '200px', 
-                                height: '200px',
-                                backgroundSize: 'contain',
-		                        backgroundRepeat: 'no-repeat',
-                                borderRadius: '100%',
-                                border: 'thin solid grey'
+                                    width: '200px', 
+                                    height: '200px',
+                                    backgroundSize: 'contain',
+                                    backgroundRepeat: 'no-repeat',
+                                    borderRadius: '100%',
+                                    border: 'thin solid grey'
                                 }} 
                                 variant="top" src={`${flower.img}`} />
                         </Link>

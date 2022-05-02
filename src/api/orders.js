@@ -46,9 +46,9 @@ export const createOrder = (user, newOrder) => {
 }
 
 // PATCH -> update function
-export const updateOrder = (user, updatedOrder) => {
+export const updateOrder = (user, updatedOrder, _id) => {
     console.log('user', user)
-    console.log('this is newPet', updatedOrder)
+    console.log('this is newOrder', updatedOrder)
     return axios({
         url:  apiUrl + `/orders/${updatedOrder.id}/`,
         method: 'PATCH',

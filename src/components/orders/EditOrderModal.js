@@ -3,14 +3,15 @@ import {Modal} from 'react-bootstrap'
 import OrderForm from '../shared/OrderForm'
 
 const EditOrderModal = (props) => {
-    const { user, show, handleClose, updateOrder, msgAlert, triggerRefresh } = props
-    const [order, setOrder] = useState(props.order)
+    const { order, user, show, handleClose, updateOrder, msgAlert, triggerRefresh } = props
+    const [editOrder, setEditOrder] = useState(props.order)
+    const{ id } = order
 
     const handleChange = (e) => {
         // e === event
         e.persist()
 
-        setOrder(prevOrder => {
+        setEditOrder(prevOrder => {
             const name = e.target.name
             let value = e.target.value
             console.log('etarget type', e.target.type)
@@ -29,8 +30,9 @@ const EditOrderModal = (props) => {
         // e === event
         e.preventDefault()
 
+
         console.log('the order to submit', order)
-        updateOrder(user, order)
+        updateOrder(user, editOrder, id)
             // if create is successful, we should navigate to the show page
             .then(() => handleClose())
             .then(() => triggerRefresh())
@@ -43,6 +45,7 @@ const EditOrderModal = (props) => {
                 }))
         console.log('this is the order', order)
     }
+    
 
     return (
         <Modal show={show} onHide={handleClose}>

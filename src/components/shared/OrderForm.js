@@ -141,7 +141,7 @@ const OrderForm = (props) => {
                     <Form.Label>Select a Size</Form.Label>
                     <Form.Select
                         className="dropdown form-control dropdown:hover"
-                        name="size dropdown-content"
+                        name="size"
                         onChange={e => handleSizeSelect(e)}
                         value={selectedSize}
                     >

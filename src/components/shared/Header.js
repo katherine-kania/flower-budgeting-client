@@ -26,7 +26,7 @@ const authenticatedOptions = (
 			<Link to='flowers' style={linkStyle}>Flowers</Link>
 		</Nav.Item>
 		<Nav.Item className="m-2">
-			<Link to='orders/create' style={linkStyle}>Create Order</Link>
+			<Link to='orders/create' style={linkStyle}>Create An Order</Link>
 		</Nav.Item>
 		<Nav.Item className="m-2">
 			<Link to='orders' style={linkStyle}>My Orders</Link>
