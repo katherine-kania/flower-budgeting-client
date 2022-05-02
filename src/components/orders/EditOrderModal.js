@@ -49,8 +49,7 @@ const EditOrderModal = (props) => {
 
     return (
         <Modal show={show} onHide={handleClose}>
-            <div closeButton></div>
-            <div style = {{width: '100%'}}>
+            <div style = {{width: '100%', backgroundColor: 'rgb(196, 98, 105)'}}>
                 <OrderForm 
                     order={order}
                     user={user}

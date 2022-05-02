@@ -64,29 +64,6 @@ const ShowOrder = (props) => {
     console.log('flower in showFlower', flower)
     console.log(' this is the order in showOrder', order)
     
-    // const flowerId = {
-    //     flowerId: order.flower 
-    // }
-    
-    // useEffect(() => {
-    //         getOneFlower(flowerId, user)
-    //         .then(res => {
-    //             console.log('flower in showFlower', res.data.flower)
-    //             setFlower({flower: res.data.flower})
-    //             console.log('flower in showFlower', flower)
-    //         })
-    //         .catch(() => {
-    //             msgAlert({
-    //                 heading: 'No flower found',
-    //                 message: 'flower missing',
-    //                 variant: 'danger',
-    //             })
-    //         })
-    
-    //     }, [])
-    
-    // console.log('flower in showOrder', flower)
-    
     if (!order) {
         return (
             <Container fluid className="justify-content-center">

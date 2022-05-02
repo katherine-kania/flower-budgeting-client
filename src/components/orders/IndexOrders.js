@@ -61,9 +61,26 @@ const IndexOrders = (props) => {
     }, [])
 
     if (!orders) {
-        return <p>loading...</p>
+        return (
+            <div style={pageBackground}>
+                <p style={pFont}>loading...</p>
+            </div>
+        )
     } else if (orders.length === 0) {
-        return <p>no orders yet</p>
+        return (
+            <>
+                <div style={pageBackground}>
+                    <div style={alignText}>
+                        <div >
+                            <Link style={pFont} to={`/orders/create`}>
+                                Looks like you have no orders. <br/>
+                                Click here to make an Order!
+                                </Link>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
     }
 
     let orderCards
