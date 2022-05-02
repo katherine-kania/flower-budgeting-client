@@ -14,6 +14,8 @@ const pageBackground = {
     alignContent: 'center',
     flexFlow: 'column wrap',
     padding: '2em',
+    marginLeft: '20%',
+    marginRight: '20%'
 }
 
 const pFont = {
@@ -115,9 +117,9 @@ const ShowOrder = (props) => {
                         <Button onClick={() => removeTheOrder()}className="m-2">
                             Delete Order
                         </Button>
-                        <Button className="m-2">
+                        {/* <Button className="m-2">
                             Next
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </Container>

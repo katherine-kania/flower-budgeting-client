@@ -10,8 +10,6 @@ const pageBackground = {
     alignContent: 'center',
     flexFlow: 'column wrap',
     padding: '2em',
-    marginLeft: '30%',
-    marginRight: '30%'
 }
 
 const pFont = {

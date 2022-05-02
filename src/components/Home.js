@@ -52,8 +52,8 @@ const Home = (props) => {
 		<div style={pageBackground}>
 			<p style={pFont}>
 				Hi there!
-				Welcome to our floral site. Here you can learn a bit more about flowers and the 
-				studio. Through our site you can make, save and inquire custom floral orders from us.
+				Welcome to the SHEARS AND ROOTS floral studio site. Here you can learn a bit about flower types and 
+				colors. Through this site you can also create, save and inquire custom floral orders.
 			</p>
 			<div style={imgCircle}>
 				<div style={colorCircle}>

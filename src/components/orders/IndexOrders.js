@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { getAllOrders } from '../../api/orders'
 import { Link } from 'react-router-dom'
-import { getOneFlower} from '../../api/flowers'
 
 const pageBackground = {
     backgroundColor: '#99a98f',
     opacity: '0.85',
     margin: '20px',
-    display: 'flex',
-    justifyContent: 'center',
-    flexFlow: 'row wrap',
 }
 
 const alignText = {
@@ -96,12 +92,12 @@ const IndexOrders = (props) => {
     }
     return (
         <>
-        <div style={pageBackground}>
+        <div style={pageBackground} >
 
                 <div style={alignText}>
                     <p style={pFont}>
                         <strong>My Saved Orders</strong>
-                    </p>
+                    </p> <br/>
                 </div>
                 <div >
             <div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Modal} from 'react-bootstrap'
-import OrderForm from '../shared/OrderForm'
+import EditForm from '../shared/EditForm'
 
 const EditOrderModal = (props) => {
     const { order, user, show, handleClose, updateOrder, msgAlert, triggerRefresh } = props
@@ -50,7 +50,7 @@ const EditOrderModal = (props) => {
     return (
         <Modal show={show} onHide={handleClose}>
             <div style = {{width: '100%', backgroundColor: 'rgb(196, 98, 105)'}}>
-                <OrderForm 
+                <EditForm 
                     order={order}
                     user={user}
                     handleChange={handleChange}
