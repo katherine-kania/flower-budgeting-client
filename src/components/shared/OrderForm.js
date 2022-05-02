@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react'
-import { Form, Container, Button, Image } from 'react-bootstrap'
+import { Form, Container, Button, Card } from 'react-bootstrap'
 import { getAllFlowers } from '../../api/flowers'
 
 const pageBackground = {
@@ -27,7 +27,7 @@ const OrderForm = (props) => {
     const {order, user, handleChange, handleSubmit, heading, msgAlert} = props
     
     //// the flowers depend on the selection of colors
-    const [flowers, setFlowers] = useState(null)
+    const [flowers, setFlowers] = useState({})
     
     /// call all flowers
     useEffect(() => {
@@ -52,10 +52,10 @@ const OrderForm = (props) => {
     const [ selectedPrice, setSelectedPrice ] = useState('')
 
     const sizes = {
-        small: ['$35-55', '$55-75'],
-        medium: ['$75-95', '$95-115'],
-        large: ['$115-145', '145-185'],
-        xlarge: ['$200-255', '255-300']
+        small: ['$35-45', '$45-55'],
+        medium: ['$55-65', '$65-75'],
+        large: ['$85-95', '$105-115'],
+        xlarge: ['$125-135', '$135-145']
     }
 
     const sizeList = Object.keys(sizes).map(key => ({
@@ -83,6 +83,7 @@ const OrderForm = (props) => {
     const [ filteredFlowers, setFilteredFlowers] = useState([])
     const [ selectedColor, setSelectedColor ] = useState('')
     const [ selectedFlower, setSelectedFlower ] = useState('')
+    const [ showFlower, setShowFlower ] = useState({})
 
     
     const colors = {
@@ -113,14 +114,14 @@ const OrderForm = (props) => {
         handleChange(e)
         
     }
-    
-        
+
     const handleFlowerSelect = (e) => {
         console.log('Selected flowers', e.target.value)
         const flowerSel = e.target.value
         setSelectedFlower(flowerSel)
         handleChange(e)
     }
+
         
     
     return (

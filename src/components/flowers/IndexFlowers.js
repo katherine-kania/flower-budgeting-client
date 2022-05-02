@@ -17,8 +17,9 @@ const pFont = {
     fontFamily: 'Poiret One',
     color: "white",
     float: 'center',
-    fontSize: '1em',
+    fontSize: '1.5em',
     fontWeight: 'bolder',
+    textTransform: 'capitalize',
 }
 
 
@@ -80,7 +81,7 @@ const IndexFlowers = (props) => {
         <>
             <div style={pageBackground}>
                 <p style={pFont}>
-                    <strong>Click on a flower to learn more about it!</strong>
+                    Click on a flower to learn more about it!
                 </p>
                 <div style={pageBackground}>
                     {flowerCards}
