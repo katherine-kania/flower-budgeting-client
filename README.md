@@ -15,7 +15,7 @@ ___
 1. Fork and clone this repository
 2. [Fork and Clone](https://github.com/katherine-kania/project-4-api) this repository as well and follow the instructions in that README
 3. In your terminal, ```run npm install``` to install node packages
-4. ```Run npm``` start to start running the client.
+4. ```Run npm start``` to start running the client.
 ___
 A Public User has access to..
 - curated collection of the floral dictionary
