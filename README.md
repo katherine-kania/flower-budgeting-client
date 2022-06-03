@@ -39,7 +39,6 @@ A Logged in User has access to..
 Stretch Goals..
 - ready to buy marketplace
 - houseplant dictionary 
-- customizable houseplant 
 
 ## ERD
 ![models](readme-images/p4-ERD.png)
