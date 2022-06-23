@@ -1,7 +1,7 @@
 let apiUrl
 const apiUrls = {
     // YOU MUST CHANGE PRODUCTION URL WHEN DEPLOYING
-	production: 'https://flowerappclient.herokuapp.com',
+	production: 'https://floralapp.herokuapp.com/',
 	development: 'http://localhost:8000',
 }
 
